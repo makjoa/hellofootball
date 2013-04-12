@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="people">
+
+
+
+
+      <!-- 회원 등록 -->
+    <insert id="createPeople" parameterType="hashmap">
+        INSERT INTO PLAYER (		
+			UNIQUE_ID,
+			CLUB_ID,
+			NAME,
+			NATION,
+			CLUB,
+			AGE,
+			POSITION,
+			INT_CAPS,
+			INT_GOALS,
+			DATE_OF_BIRTH,
+			BASED,
+			DIVISION,
+			JOINED_CLUB,
+			SQUAD
+            )
+        values (
+			#{UniqueID},
+			#{ClubID},
+			#{Name},
+			#{Nation},
+			#{Club},
+			#{Age},
+			#{Position},
+			#{IntCaps},
+			#{IntGoals},
+			#{DateOfBirth},
+			#{Based},
+			#{Division},
+			#{JoinedClub},
+			#{Squad}
+			)
+    </insert>
+    
+      <!-- 회원 등록 -->
+    <insert id="createPeople2" parameterType="hashmap">
+    
+        INSERT INTO PLAYER2 (		
+			UNIQUE_ID,
+			NATION_ID,
+			FULL_NAME,
+			HEIGHT,
+			WEIGHT,
+			U_CAPS,
+			U_GOALS
+            )
+        values (
+              #{UID}
+              , #{NationID}
+              , #{Name}                            
+              , #{Height}
+              , #{Weight}
+              , #{U21Caps}
+              , #{U21Goals}
+			)
+			ON DUPLICATE KEY
+            UPDATE UNIQUE_ID=#{UID}
+    </insert>
+
+      <!-- 회원 등록 -->
+    <insert id="createClub" parameterType="hashmap">
+  
+    
+        INSERT INTO CLUB (
+			UNIQUE_ID,
+			DIVISION_ID,
+			NAME,
+			NATION,
+			DIVISION,
+			REP,
+			AV_AGE,
+			BALANCE,
+			TRN_BUDGET_S,
+			TRN_BUDGET_R,
+			WAGE_BUDGET,
+			STATUS,
+			TF,
+			YA,
+			YF,
+			STAD_CAP,
+			AV_ATT,
+			MIN_ATT,
+			MAX_ATT,
+			RATING,
+			POT_RATING)
+        values (
+			#{UniqueID},
+			#{DivisionID},
+			#{Name},
+			#{Nation},
+			#{Division},
+			#{Rep},
+			#{AvAge},
+			#{Balance},
+			#{TrnBudgetS},
+			#{TrnBudgetR},
+			#{WageBudget},
+			#{Status},
+			#{TF},
+			#{YA},
+			#{YF},			
+			#{StadCap},
+			#{AvAtt},
+			#{MinAtt},
+			#{MaxAtt},
+			#{Rating},
+			#{PotRating})
+    </insert>
+
+    <!-- 로그인 체크   -->
+    <select id="loginProcess" parameterType="User" resultType="User">        
+    
+        <![CDATA[
+          SELECT ID, PASSWORD
+          FROM IS_USER
+          WHERE id = #{id} and password = old_password(#{password}) ]]>         
+    
+    </select>  
+
+    <!-- 전체 레코드 조회   -->
+    <select id="getTotalNum" parameterType="HashMap" resultType="int">
+        SELECT COUNT(*) FROM IS_BOARD         
+        <where> 
+            <if test="type != null and keyword != null">
+                ${type} LIKE ${keyword}
+            </if>
+        </where>
+        
+    </select>
+    
+    <!-- 게시물 조회   -->
+    <select id="getArticle" parameterType="int" resultType="Article">        
+        SELECT 
+            * 
+        FROM IS_BOARD                      
+        WHERE DATANUM = #{datanum}        
+    </select>      
+    
+ 
+</mapper>

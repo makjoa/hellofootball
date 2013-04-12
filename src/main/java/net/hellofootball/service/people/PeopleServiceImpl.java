@@ -1,0 +1,40 @@
+package net.hellofootball.service.people;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import net.hellofootball.domain.player.Player;
+
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service 
+@Transactional
+public class PeopleServiceImpl extends SqlSessionDaoSupport implements PeopleService {
+
+	@Override
+	public void list(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Player findsPlayer(int idx) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void createPeople(HashMap<String, String> map) {
+		getSqlSession().insert("createPeople", map);
+	}
+	
+	public void createPeople2(HashMap<String, String> map) {
+		getSqlSession().insert("createPeople2", map);
+	}
+	
+	public void createClub(HashMap<String, String> map) {
+		getSqlSession().insert("createClub", map);
+	}
+
+}

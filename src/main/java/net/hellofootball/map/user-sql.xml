@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+
+
+
+
+      <!-- 회원 등록 -->
+    <insert id="addUser" parameterType="User">
+<!--         <selectKey keyProperty="unique_id" resultType="long" order="BEFORE">
+            SELECT COALESCE(MAX(unique_id), 0) + 1 AS unique_id 
+            FROM SER
+        </selectKey>
+ -->            
+        INSERT INTO USER (
+              id, password, name
+            , nickname 
+            , joindate
+            , email            
+            , mailling, point)
+        values (
+              #{username}, old_password(#{password}), #{name}
+              , #{name}
+              , NOW()
+              , #{email}              
+              , '0', '0') 
+    </insert>
+
+
+    <!-- 로그인 체크   -->
+    <select id="loginProcess" parameterType="HashMap" resultType="User">        
+    
+        <![CDATA[
+          SELECT ID, PASSWORD
+          FROM USER
+          WHERE ID = #{id} and password = old_password(#{password}) ]]>         
+    
+    </select>
+    
+    <!-- 유저정보 조회   -->
+    <select id="findByUserName" parameterType="String" resultType="User">        
+    
+        <![CDATA[
+          SELECT *
+          FROM USER
+          WHERE ID = #{id} ]]>         
+    
+    </select>
+    
+    <!-- 로그인 체크   -->
+    <select id="existsUsername" parameterType="String" resultType="boolean">        
+    
+        <![CDATA[
+          SELECT COUNT(*)
+          FROM USER
+          WHERE ID = #{username} ]]>
+    
+    </select>      
+
+    <!-- 전체 레코드 조회   -->
+    <select id="getTotalNum" parameterType="HashMap" resultType="int">
+        SELECT COUNT(*) FROM IS_BOARD         
+        <where> 
+            <if test="type != null and keyword != null">
+                ${type} LIKE ${keyword}
+            </if>
+        </where>
+        
+    </select>
+    
+    <!-- 게시물 조회   -->
+    <select id="getArticle" parameterType="int" resultType="Article">        
+        SELECT 
+            * 
+        FROM IS_BOARD                      
+        WHERE DATANUM = #{datanum}        
+    </select>      
+    
+ 
+</mapper>
