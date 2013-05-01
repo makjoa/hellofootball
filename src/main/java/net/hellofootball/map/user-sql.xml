@@ -31,7 +31,7 @@
     <select id="loginProcess" parameterType="HashMap" resultType="User">        
     
         <![CDATA[
-          SELECT ID, PASSWORD
+          SELECT *
           FROM USER
           WHERE ID = #{id} and password = old_password(#{password}) ]]>         
     

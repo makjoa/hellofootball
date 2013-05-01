@@ -10,7 +10,6 @@ import net.hellofootball.realtimeweb.RealtimeWebServer;
 import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,8 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
-
-import net.hellofootball.social.SocialSignInAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -83,7 +80,7 @@ public class UserController {
 		} else {			
 
 			User user = userService.loginCheck(loginCommand.getUsername(), loginCommand.getPassword());
-			
+			System.out.println(user);
 			if(null == user) {
 				return "/user/login";
 			} else {
@@ -124,9 +121,9 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(session.getAttribute("userSession"));
 		user = (User)session.getAttribute("userSession");
-		System.out.println(user.getUsername());
+		System.out.println(user.getName());
 		if(user != null)
-		user = userService.findByUserName(user.getUsername());
+		user = userService.findByUserName(user.getName());
 		
 		mav.addObject("userInfo", user);
 		mav.setViewName("user/"+id);

@@ -7,6 +7,7 @@
     <select id="getClubList" parameterType="HashMap" resultType="HashMap">
 		 SELECT *  
 		 FROM CLUB
+		 WHERE DIVISION_ID = 11 
 		 ORDER BY UNIQUE_ID DESC                
         <!-- 
         <where> 
@@ -19,7 +20,13 @@
             </if>
         -->
     </select>
-      
+    
+    <select id="getClubJSON" parameterType="String" resultType="HashMap">
+        SELECT * FROM CLUB
+        WHERE NAME LIKE CONCAT('', #{p}, '%') ORDER BY REP DESC LIMIT 6;
+        
+    </select>  
+          
     <select id="getBestClubList" parameterType="HashMap" resultType="HashMap">
         SELECT * FROM CLUB
         WHERE REP BETWEEN '9000' AND '10000' ORDER BY REP DESC;
@@ -37,11 +44,11 @@
     </select>
     
     <!-- 게시물 조회   -->
-    <select id="getArticle" parameterType="int" resultType="Article">        
+    <select id="getClub" parameterType="Long" resultType="HashMap">        
         SELECT 
             * 
-        FROM ARTICLE                      
-        WHERE num = #{num}        
+        FROM CLUB                      
+        WHERE UNIQUE_ID = #{id}        
     </select>      
     
     <!-- 게시물 등록 -->

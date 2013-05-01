@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>        
+        <div id="dm_dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	        <div class="module">
+	            <div class="flex-module">
+	                <div class="flex-module-header">
+	                    <h3>컨텐츠</h3>
+	                </div>                              
+	                <div class="stream-container">
+	                    <div class="stream home-stream">
+	                       <ul class="js-nav-links">
+	                            <li class="media-thumbnails top-videos media-videos hidden last-item" style="display: list-item;">
+	                                <div class="list-link">
+	                                    <div class="media-row">
+	                                        <div class="media-row-content photo-list">
+	                                            <a data-status-id="315381454987210752" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/jRNMt9wzKEE" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+	                                                <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
+	                                            </a>
+	                                            <a data-status-id="315378084213841920" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/IwYSUVf8Tvs" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+	                                                <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
+	                                            </a>
+	                                            <a data-status-id="315297862890172417" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/ze0JdvUU_xg" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+	                                                <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
+	                                            </a>
+	                                            <a data-status-id="315148093538578433" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/zIMdBK8yr_g" data-height="326" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+	                                                <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.33333333333333px; left: -25.666666666666664px; top: 0px;">
+	                                            </a>
+	                                            <span class="thumbnail-placeholder first"></span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </li>
+	                       </ul>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>                    
+        </div>

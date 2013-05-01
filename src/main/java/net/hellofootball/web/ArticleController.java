@@ -37,7 +37,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/{m_id}")
+@RequestMapping("/article")
 public class ArticleController {
 
 	private int currentPage = 1;			// 현재페이지

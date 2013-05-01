@@ -3,8 +3,6 @@
 <mapper namespace="people">
 
 
-
-
       <!-- 회원 등록 -->
     <insert id="createPeople" parameterType="hashmap">
         INSERT INTO PLAYER (		
@@ -138,12 +136,16 @@
     </select>
     
     <!-- 게시물 조회   -->
-    <select id="getArticle" parameterType="int" resultType="Article">        
+    <select id="getPeople" parameterType="int" resultType="HashMap">        
         SELECT 
             * 
-        FROM IS_BOARD                      
-        WHERE DATANUM = #{datanum}        
+        FROM PLAYER                      
+        WHERE UNIQUE_ID = #{unique_id}        
     </select>      
     
+    <select id="getPeopleJSON" parameterType="String" resultType="HashMap">
+        SELECT * FROM PLAYER
+        WHERE FULL_NAME LIKE CONCAT('%', #{p}, '%') ORDER BY FULL_NAME DESC LIMIT 6;        
+    </select>      
  
 </mapper>

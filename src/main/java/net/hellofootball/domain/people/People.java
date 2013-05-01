@@ -1,9 +1,9 @@
-package net.hellofootball.domain.player;
+package net.hellofootball.domain.people;
 
 import java.util.Date;
 
 
-public class Player {
+public class People {
 	
 	private int idx;
     private String uid;
@@ -31,7 +31,7 @@ public class Player {
     private int hitcount;
     private String fileName;
     
-	public Player(int idx, String uid, String password, String nationalities,
+	public People(int idx, String uid, String password, String nationalities,
 			String cityOfBirth, String displayedName, String firstName,
 			String lastName, String gender, String born, String age,
 			String height, String weight, int squadNumber, int status,

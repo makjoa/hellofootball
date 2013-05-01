@@ -1,6 +1,7 @@
 package net.hellofootball.web;
 
 import net.hellofootball.service.article.ArticleService;
+import net.hellofootball.service.club.ClubService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,8 @@ public class HomeController {
 	
 	@Autowired
 	ArticleService articleService;
+	@Autowired
+	ClubService clubService;
 	
 	@RequestMapping("/")
 	public String home(Model model) {				
@@ -23,12 +26,24 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String index(@PathVariable String id, Model model) {				
-		model.addAttribute("m_id", id);
+	@RequestMapping("/tactics")
+	public String showTactics(Model model) {				
+		model.addAttribute("getBestClubList", clubService.getBestClubList());		
+		
+		return "tactics/index";
+	}	
+	
+	@RequestMapping("/news")
+	public String index(Model model) {				
+		//model.addAttribute("m_id", id);
 		model.addAttribute("getNewsList", articleService.getArticleList());
-		return id+"/index";
+		return "news/index";
 		
 	}
-
+	
+	@RequestMapping("/map")
+	public String getGis() {					
+		return "map/map";
+		
+	}
 }

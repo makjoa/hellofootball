@@ -5,39 +5,43 @@ import java.util.List;
 import net.hellofootball.service.club.ClubService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping("club")
+@RequestMapping("/clubs")
 public class ClubController {
 	
 	@Autowired
 	ClubService clubService;
 	
-	@Autowired 
-	MongoTemplate mongoTemplate;
-	
-	@RequestMapping("/")
-	public String home(Model model) {				
+	@RequestMapping("")
+	public String getClubList(Model model) {				
+		model.addAttribute("getBestClubList", clubService.getBestClubList());
 		model.addAttribute("getClubList", clubService.getClubList());		
-		return "index";
+		return "club/index";
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String list(@PathVariable String id, Model model) {		
-		model.addAttribute("m_id", id);
-		model.addAttribute("getBestClubList", clubService.getBestClubList());
-		model.addAttribute("getClubList", clubService.getClubList());
-		System.out.println(clubService.getBestClubList());
-		return "club/index";
+	@RequestMapping("/view/{id}")
+	public String getClub(@PathVariable Long id, Model model) {				
+		model.addAttribute("getClub", clubService.getClub(id));
+		return "club/view";
 		
 	}
-
+	
+	@RequestMapping("/q/json")
+	public String getClub(@RequestParam(value = "q", required = false) String q, Model model) {
+		System.out.println("=============================JSON===============================");		
+		model.addAttribute("jsonData", clubService.getClubJSON(q));
+		
+		return "jsonView";
+		
+	}
 }
