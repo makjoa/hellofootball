@@ -2761,3 +2761,44 @@ margin: -3px 10px 0 0;
 width: 24px;
 height: 22px;
 }
+.alert-messages {
+position: fixed;
+top: 47px;
+left: 0;
+right: 0;
+z-index: 7000;
+}
+.message {
+position: relative;
+width: 500px;
+padding: 10px 12px;
+margin: 0 auto;
+text-shadow: 0 -1px 1px rgba(0,0,0,.5);
+background: #111;
+background: rgba(20,20,20,.9);
+border-radius: 6px;
+-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.25);
+box-shadow: 0 2px 4px rgba(0,0,0,.25);
+}
+.message .message-text {
+display: block;
+margin-right: 20px;
+color: #ccc;
+font-size: 12px;
+line-height: 16px;
+text-align: center;
+}
+.message .dismiss {
+font-size: 18px;
+font-weight: bold;
+color: #fff;
+margin-top: 0;
+text-decoration: none;
+}
+.message .close, .message .dismiss {
+position: absolute;
+top: 7px;
+right: 12px;
+filter: alpha(opacity=50);
+opacity: .50;
+}

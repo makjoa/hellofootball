@@ -1,9 +1,7 @@
 package net.hellofootball.util;
 
 public class PagingUtil {
-	
-
-	
+		
 	// A method for Creating page html code
 	public StringBuffer getPageHtml(int currentPage, int totalNum, int showArticleLimit, int showPageLimit, String type, String keyword) {
 		StringBuffer pageHtml = new StringBuffer();

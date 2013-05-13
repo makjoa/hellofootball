@@ -39,6 +39,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
+	
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	private int currentPage = 1;			// 현재페이지
 	private int showArticleLimit = 10;	// 화면에 보여줄 리스트 개 change value if want to show more articles by one page
@@ -47,19 +48,11 @@ public class ArticleController {
 	private int endArticleNum = 0;		// 마지막
 	private int totalNum = 0;				// 총페이지 수
 	private int insertCount = 0;				// 등록수
+	
 	@Autowired
 	ArticleService articleService;
 	PagingService pagingService;
-
-	/**
-	 * URL매핑 테스트
-	 * @param jsonData
-	 * @param nickName
-	 * @param model
-	 * @param request
-	 * @param response
-	 * @return
-	 */
+	PagingUtil pagingUtil;
 
 	@RequestMapping(value = { "/form" } , method = RequestMethod.GET)
 	public String form(@PathVariable("m_id") String m_id, Model model){		

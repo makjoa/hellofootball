@@ -26,6 +26,7 @@
         <script src="http://cdn.sockjs.org/sockjs-0.3.4.min.js"></script>      
         <script src="<%=request.getContextPath()%>/resources/js/json2.js"></script>  
         <script src="<%=request.getContextPath()%>/resources/js/RealtimeWebClient.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/modules/app/tc.js"></script>
         <!-- <script type="text/javascript" src='http://makjoa.iptime.org:8001/socket.io/socket.io.js'></script>
          -->
         <script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;key=AIzaSyC_GMIKaDvSJV6-bgdTeFkkudS5LEJSrrE"></script>
@@ -37,6 +38,7 @@
         </script>         
     </head>
     <body id="page-docs" class="not-front not-logged-in no-sidebars user-style-mouse208" data-twttr-rendered="true">
+        <jsp:directive.include file="message.jspf"/>    
         <jsp:directive.include file="dialog.jspf"/>
         <div id="doc">
             <div class="push-loader" id="pushStateSpinner"></div>

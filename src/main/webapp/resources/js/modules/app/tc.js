@@ -1,6 +1,9 @@
   var shirtId = "_1.png";
   var currentData = {};
   $(function () {
+	  $('a.dismiss').on('click', function(e){
+		  $('#message-drawer').addClass("hidden"); 
+	  });
       $(".fullname").disableSelection();
       $("#player_list").disableSelection();
       $("#field").disableSelection();      

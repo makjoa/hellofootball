@@ -53,11 +53,18 @@
 	        }
 	    }, 'json');
 	};
+	
+	var loadNews = function() {
+		var pageNum = $('#page').val();
+		
+		
+	};
+	
 function addNews() {
 	console.log(result);
 	$('div.stream-item').remove();
         var $newNews = $(                       
-                '<li class="js-stream-item stream-item stream-item expanding-stream-item" data-item-id="304775453590294528" id="stream-item-tweet-304775453590294528" data-item-type="tweet">'
+                '<li class="js-stream-item stream-item stream-item expanding-stream-item" data-item-id="" id="" data-item-type="tweet">'
                 +'  <div class="expansion-container js-expansion-container" style="height: auto;">'
                 +'      <div class="tweet original-tweet js-stream-tweet js-actionable-tweet js-profile-popup-actionable js-original-tweet with-social-proof">'
                 +'          <div class="content">'
@@ -331,15 +338,16 @@ function addNews() {
 						<div class="content-custom js-timeline-from-cache" id="timeline">
 						    <div class="content-header">
 						        <div class="header-inner">
-						            <h3 class="js-timeline-title">최신뉴스</h3>
+						            <h3 class="js-timeline-title" style="display: inline;">최신뉴스</h3>						            
+						              <a class="btn primary-btn tweet-action" style="float: right; margin-top: -5px;" type="button" href="info/form">글쓰기</a>						            
 						        </div>
 						    </div>
 						    <div class="stream-container " data-max-id="302023254317608959" data-since-id="304214130078916608">
-						        <div class="stream home-stream">
-                                    <c:set var="newsList" value="${getNewsList}" />
-						            <ol class="stream-items" id="stream-items-id" data-item-count="${fn:length(newsList)}">
+						        <div class="stream home-stream">                                    
+						            <ol class="stream-items" id="stream-items-id" data-item-count="${fn:length(getNewsList)}">
+						                <c:if test="${not empty getNewsList}">
                                         <c:set var="doneLoop" value="false"/> 
-                                        <c:forEach var="news" items="${newsList}" varStatus="status">
+                                        <c:forEach var="news" items="${getNewsList}" varStatus="status">
                                         <c:if test="${not doneLoop}"> 
 						                <li class="js-stream-item stream-item stream-item expanding-stream-item" data-item-id="304775453590294528" id="stream-item-tweet-304775453590294528" data-item-type="tweet">
 							                <div class="expansion-container js-expansion-container" style="height: auto;">
@@ -376,7 +384,7 @@ function addNews() {
 															<div class="reply">
                                                                 <img alt="Re" src="http://www.newsmate.kr/assets/re-28810bc7c398f8f28c600f0d22b4dfdd.png">
 															    <span style="font-size: 12px;"><a href="/articles/3602611">댓글</a></span>
-															    <fb:comments-count href="http://www.newsmate.kr/articles/3602611" fb-xfbml-state="rendered" class=" fb_comments_count_zero">
+															    <fb:comments-count href="" fb-xfbml-state="rendered" class=" fb_comments_count_zero">
 																<span class="fb_comments_count">0</span></fb:comments-count>
 															</div>
 							                            </div>
@@ -388,7 +396,8 @@ function addNews() {
     		                            <c:set var="doneLoop" value="true"/>
 		                                </c:if>
 		                                </c:if>
-						                </c:forEach>					                
+						                </c:forEach>
+						                </c:if>					                
 						            </ol>
                                     <script type="text/javascript">
                                     RealtimeWebClient.join('${m_id}', '${m_id}');
@@ -399,7 +408,7 @@ function addNews() {
 						                <div class="timeline-end has-items">
 						                    <div class="stream-end">
 						                        <div class="stream-end-inner" id="testDIV">
-						                         <a class="btn primary-btn tweet-action" type="button" href="info/form">더보기</a>
+						                         <a class="btn" type="button" href="info/form">더보기</a>
 						                        </div>
 						                    </div>
 						                </div>

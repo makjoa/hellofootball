@@ -16,6 +16,7 @@
   
     <mappers>  
         <mapper resource="net/hellofootball/map/article-sql.xml"/>
+        <mapper resource="net/hellofootball/map/news-sql.xml"/>
         <mapper resource="net/hellofootball/map/user-sql.xml"/>
         <mapper resource="net/hellofootball/map/club-sql.xml"/>
         <mapper resource="net/hellofootball/map/people-sql.xml"/>
