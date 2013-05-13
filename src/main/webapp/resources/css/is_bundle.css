@@ -2664,3 +2664,100 @@ height: 13px;
 background: url(../images/twitter_web_sprite_icons.png) no-repeat 0 -510px;
 cursor: pointer;
 }
+.widgets .row {
+margin: 20px 0;
+}
+.row {
+margin-left: -20px;
+}
+.row:before, .row:after {
+display: table;
+content: "";
+}
+.widgets .row h2 {
+margin-bottom: 20px;
+}
+.widgets .header h1, .widgets .row h2 {
+font-weight: normal;
+}
+.widgets .widgets-source li {
+display: block;
+}
+.widgets .widgets-source a {
+display: block;
+line-height: 25px;
+}
+.widgets .preview {
+height: 350px;
+background: #fff;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.widgets .footer {
+font-size: 12px;
+text-align: center;
+}
+.widgets .options-column {
+float: left;
+width: 240px;
+margin-right: 10px;
+}
+.widgets .preview-column {
+float: left;
+width: 630px;
+}
+.nav-tabs {
+border-bottom: 1px solid #ddd;
+}
+.nav-tabs:before, .nav-tabs:after {
+display: table;
+content: "";
+}
+.nav-tabs:after {
+clear: both;
+}
+.nav-tabs:before, .nav-tabs:after {
+display: table;
+content: "";
+}
+.nav-tabs>li {
+margin-bottom: -1px;
+}
+.nav-tabs>li {
+float: left;
+}
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover {
+color: #555;
+cursor: default;
+background-color: #fff;
+border: 1px solid #ddd;
+border-bottom-color: transparent;
+}
+.nav-tabs>li>a {
+padding-top: 8px;
+padding-bottom: 8px;
+line-height: 18px;
+border: 1px solid transparent;
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+}
+.nav-tabs>li>a {
+padding-right: 12px;
+padding-left: 12px;
+margin-right: 2px;
+line-height: 14px;
+}
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover {
+color: #555;
+cursor: default;
+}
+.configurator-user {
+background-position: 0 -1220px;
+}
+.configurator-user, .configurator-search, .configurator-list, .configurator-favorites {
+margin: -3px 10px 0 0;
+width: 24px;
+height: 22px;
+}

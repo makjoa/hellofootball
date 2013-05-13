@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/peoples")
 public class PeopleController {
-	//private static final Logger logger = LoggerFactory.getLogger(PlayerController.class);
+	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	private static final int DEFAULT_PAGE_NO = 0;
 	private static final int DEFAULT_PAGE_SIZE = 15;

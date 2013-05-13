@@ -14,7 +14,7 @@
 		                    <input type="hidden" name="GALX" value="9mofRQhmAnw">
 		                    <input type="hidden" name="timeStmp" id="timeStmp" value="1359702042">
 		                    <input type="hidden" name="secTok" id="secTok" value=".AG5fkS_c1tanjwnMZKn6ymU2o8XKxvoX4Q==">
-		                    <input type="hidden" id="_utf8" name="_utf8" value="☃">
+		                    <input type="hidden" id="_utf8" name="_utf8" value="">
 		                    <input type="hidden" name="bgresponse" id="bgresponse" value="js_disabled">
 		                    <div class="email-div">
 		                        <label for="Email"><strong class="email-label">이메일</strong></label>

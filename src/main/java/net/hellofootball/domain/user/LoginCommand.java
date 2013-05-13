@@ -38,5 +38,38 @@ public class LoginCommand {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public LoginCommand() {}
+	
+	public LoginCommand(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+	}
 
 }

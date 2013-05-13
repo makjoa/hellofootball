@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/infoshop-servlet.xml</config>
+		<config>src/main/resources/config/context-datasource.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

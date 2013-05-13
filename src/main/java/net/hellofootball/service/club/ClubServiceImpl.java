@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.apache.log4j.Logger;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service 
 @Transactional
 public class ClubServiceImpl extends SqlSessionDaoSupport implements ClubService {
-	
+	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	private static String COLLECTION_NAME = "club";	
 	
 	@Override

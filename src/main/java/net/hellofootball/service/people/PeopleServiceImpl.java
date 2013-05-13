@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.hellofootball.domain.people.People;
 
+import org.apache.log4j.Logger;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +17,7 @@ import org.springframework.transaction.annotation.Propagation;
 @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT ,rollbackFor = {Exception.class,SQLException.class} ,readOnly = false)
 
 public class PeopleServiceImpl extends SqlSessionDaoSupport implements PeopleService {
-
+	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	@Override
 	public List<Object> getPeopleList() {
 		return null;

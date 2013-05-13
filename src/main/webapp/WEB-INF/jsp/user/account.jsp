@@ -21,14 +21,14 @@
 			            </div>
 			            <div class="module">
 			                <ul class="js-nav-links">
-			                    <li class="active"><a class="list-link js-nav" href="/user/account" data-nav="account">계정 <i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link js-nav" href="/settings/password" data-nav="password">비밀번호<i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link js-nav" href="/settings/devices" data-nav="devices">모바일 <i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link js-nav" href="/settings/notifications" data-nav="notifications">이메일 알림 <i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link js-nav" href="/user/profile" data-nav="profile">프로필 <i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link js-nav" href="/settings/design" data-nav="design">디자인 <i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link js-nav" href="/settings/applications" data-nav="connections">애플리케이션<i class="chev-right"></i></a></li>
-			                    <li class=""><a class="list-link" href="/settings/widgets" data-nav="widgets">위젯 <i class="chev-right"></i></a></li>
+			                    <li class="active"><a class="list-link js-nav" href="/user/settings/account" data-nav="account">계정 <i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link js-nav" href="/user/settings/password" data-nav="password">비밀번호<i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link js-nav" href="/user/settings/devices" data-nav="devices">모바일 <i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link js-nav" href="/user/settings/notifications" data-nav="notifications">이메일 알림 <i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link js-nav" href="/user/settings/profile" data-nav="profile">프로필 <i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link js-nav" href="/user/settings/design" data-nav="design">디자인 <i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link js-nav" href="/user/settings/favourites" data-nav="connections">좋아하는 클럽<i class="chev-right"></i></a></li>
+			                    <li class=""><a class="list-link" href="/user/settings/widgets" data-nav="widgets">위젯 <i class="chev-right"></i></a></li>
 			                </ul>
 			            </div>
 			        </div>

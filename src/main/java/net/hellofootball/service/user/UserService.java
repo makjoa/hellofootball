@@ -1,6 +1,7 @@
 package net.hellofootball.service.user;
 
 import java.util.HashMap;
+import java.util.List;
 
 import net.hellofootball.domain.user.User;
 
@@ -19,6 +20,14 @@ public interface UserService {
 	void addUser(User user);
 	
 	void updateUser(User user);
+	
+	HashMap<String, String> findByFavouriteClub(String screen_name);
+	
+	void updateFavouriteClub(List clubList);
+	
+	HashMap<String, String> findByFavouritePlayer(String screen_name);
+	
+	void updateFavouritePlayer(List clubList);
 	
 	void updateUserPoint(int setPoint);
 }

@@ -39,7 +39,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
-
+	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	private int currentPage = 1;			// 현재페이지
 	private int showArticleLimit = 10;	// 화면에 보여줄 리스트 개 change value if want to show more articles by one page
 	private int showPageLimit = 10; 	// 화면에 페이지 수 change value if want to show more page links

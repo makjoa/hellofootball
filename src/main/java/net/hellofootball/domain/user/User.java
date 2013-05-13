@@ -75,6 +75,10 @@ public class User {
 	 */
 	private long unique_id;
 	
+	private String favourite_clubs;
+	
+	private String favourite_players;
+	
 	private ArrayList<String>   role;
 
 
@@ -82,19 +86,25 @@ public class User {
 
 
 	public User(String username, String name, String nickname, String password,
-			String email, Date joindate, String profile,
-			String mailing, long point, long sid, ArrayList<String> role) {
+			String passwordConfirm, String email, Date joindate,
+			String profile, String mailing, long point, long sid,
+			long unique_id, String favourite_clubs, String favourite_players,
+			ArrayList<String> role) {
 		super();
 		this.username = username;
 		this.name = name;
 		this.nickname = nickname;
 		this.password = password;
+		this.passwordConfirm = passwordConfirm;
 		this.email = email;
 		this.joindate = joindate;
 		this.profile = profile;
 		this.mailing = mailing;
 		this.point = point;
 		this.sid = sid;
+		this.unique_id = unique_id;
+		this.favourite_clubs = favourite_clubs;
+		this.favourite_players = favourite_players;
 		this.role = role;
 	}
 
@@ -282,10 +292,33 @@ public class User {
 		return passwordConfirm;
 	}
 
-
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
 	}    
+	
+	public long getUnique_id() {
+		return unique_id;
+	}
+
+	public void setUnique_id(long unique_id) {
+		this.unique_id = unique_id;
+	}
+
+	public String getFavourite_clubs() {
+		return favourite_clubs;
+	}
+
+	public void setFavourite_clubs(String favourite_clubs) {
+		this.favourite_clubs = favourite_clubs;
+	}
+
+	public String getFavourite_players() {
+		return favourite_players;
+	}
+
+	public void setFavourite_players(String favourite_players) {
+		this.favourite_players = favourite_players;
+	}	
 	
 	public boolean isAccountNonExpired() 
 	{
@@ -399,21 +432,15 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", name=" + name + ", nickname=" + nickname
-				+ ", password=" + password + ", passwordConfirm=" + passwordConfirm+ ", email=" + email + ", " +"joindate=" + joindate
-				+ ", profile=" + profile
-				+ ", mailing=" + mailing + ", point=" + point + ", sid=" + sid
-				+ ", role=" + role + "]";
+		return "User [username=" + username + ", name=" + name + ", nickname="
+				+ nickname + ", password=" + password + ", passwordConfirm="
+				+ passwordConfirm + ", email=" + email + ", joindate="
+				+ joindate + ", profile=" + profile + ", mailing=" + mailing
+				+ ", point=" + point + ", sid=" + sid + ", unique_id="
+				+ unique_id + ", favourite_clubs=" + favourite_clubs
+				+ ", favourite_players=" + favourite_players + ", role=" + role
+				+ "]";
 	}
 
-
-	public long getUnique_id() {
-		return unique_id;
-	}
-
-
-	public void setUnique_id(long unique_id) {
-		this.unique_id = unique_id;
-	}
 
 }

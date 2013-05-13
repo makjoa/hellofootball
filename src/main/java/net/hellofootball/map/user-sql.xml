@@ -57,24 +57,40 @@
     
     </select>      
 
-    <!-- 전체 레코드 조회   -->
-    <select id="getTotalNum" parameterType="HashMap" resultType="int">
-        SELECT COUNT(*) FROM IS_BOARD         
-        <where> 
-            <if test="type != null and keyword != null">
-                ${type} LIKE ${keyword}
-            </if>
-        </where>
-        
+    <!-- 유저 즐겨찾기 조회   -->
+    <select id="findByFavouriteClub" parameterType="String" resultType="HashMap">        
+    
+        <![CDATA[
+          SELECT *
+          FROM user_favourite_club
+          WHERE USER_ID = #{id} ]]>         
+    
     </select>
+
+	<insert id="updateFavouriteClub" useGeneratedKeys="true" parameterType="java.util.List">
+	    INSERT INTO user_favourite_club (USER_ID, CLUB_ID) VALUES (
+	    <foreach collection="list" item="parm" open="" close="" separator="),(">
+	        #{parm.USER_ID},#{parm.CLUB_ID}
+	    </foreach>
+	    )
+	</insert>
+	
+    <!-- 유저 즐겨찾기 조회   -->
+    <select id="findByFavouritePlayer" parameterType="String" resultType="HashMap">        
     
-    <!-- 게시물 조회   -->
-    <select id="getArticle" parameterType="int" resultType="Article">        
-        SELECT 
-            * 
-        FROM IS_BOARD                      
-        WHERE DATANUM = #{datanum}        
-    </select>      
+        <![CDATA[
+          SELECT *
+          FROM user_favourite_player
+          WHERE USER_ID = #{id} ]]>         
     
- 
+    </select>
+
+    <insert id="updateFavouritePlayer" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO user_favourite_player (USER_ID, PLAYER_ID) VALUES (
+        <foreach collection="list" item="parm" open="" close="" separator="),(">
+            #{parm.USER_ID},#{parm.PLAYER_ID}
+        </foreach>
+        )
+    </insert>
+     
 </mapper>

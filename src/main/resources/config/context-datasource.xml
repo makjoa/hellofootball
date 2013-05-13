@@ -20,7 +20,7 @@
 		http://www.springframework.org/schema/data/mongo
         http://www.springframework.org/schema/data/mongo/spring-mongo-1.2.xsd ">
     	
-    <context:property-placeholder location="classpath*:application-properties.xml" />
+    <context:property-placeholder location="classpath:config/context-properties.xml" />
     		  
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
@@ -46,8 +46,4 @@
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 	
-    <context:component-scan base-package="net.hellofootball.*" >
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />            
-    </context:component-scan>   	
-    
 </beans>

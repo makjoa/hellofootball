@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.hellofootball.service.club.ClubService;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,7 @@ import com.google.gson.Gson;
 @Controller
 @RequestMapping("/clubs")
 public class ClubController {
-	
+	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	@Autowired
 	ClubService clubService;
 	
