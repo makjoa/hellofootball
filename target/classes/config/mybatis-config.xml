@@ -11,6 +11,7 @@
     
     <typeAliases>
         <typeAlias type="net.hellofootball.domain.article.Article" alias="Article"/>
+        <typeAlias type="net.hellofootball.domain.news.News" alias="News"/>
         <typeAlias type="net.hellofootball.domain.user.User" alias="User"/>
     </typeAliases>
   

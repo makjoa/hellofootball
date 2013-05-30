@@ -36,7 +36,7 @@ public class ClubController {
 		return "club/view";
 		
 	}
-	
+
 	@RequestMapping("/q/json")
 	public String getClub(@RequestParam(value = "q", required = false) String q, Model model) {
 		System.out.println("=============================JSON===============================");		
@@ -45,4 +45,14 @@ public class ClubController {
 		return "jsonView";
 		
 	}
+	
+	@RequestMapping("/q/excel")
+	public String getExcelDownLoad(@RequestParam(value = "q", required = false) String q, Model model) {
+		System.out.println("=============================JSON===============================");		
+		model.addAttribute("jsonData", clubService.getClubJSON(q));
+		
+		return "jsonView";
+		
+	}
+	
 }

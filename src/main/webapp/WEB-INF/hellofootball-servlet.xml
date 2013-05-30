@@ -22,6 +22,10 @@
 	<mvc:resources mapping="/common/**" location="/common/" />
 	<mvc:default-servlet-handler />
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+	    <property name="maxUploadSize" value="30720000" />
+	</bean>
+	
     <bean id="bnViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"
         p:order="0"/>
         		

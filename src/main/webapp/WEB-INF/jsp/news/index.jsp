@@ -53,12 +53,7 @@
 	        }
 	    }, 'json');
 	};
-	
-	var loadNews = function() {
-		var pageNum = $('#page').val();
-		
-		
-	};
+
 	
 function addNews() {
 	console.log(result);
@@ -196,7 +191,7 @@ function addNews() {
 							                    </span>
 							                    </a>
 							                    <small class="metadata social-context">
-							                    <a class="pretty-link user-profile-link js-user-profile-link" data-user-id="174315652" href="/BlizzardCS_KR" title="블리자드 고객지원"><b>블리자드 고객지원</b></a> 님 외 <a href="/BlizzardCSEU_PT/followers_you_follow" class="pretty-link"><b>다수</b></a>가 팔로우함 </small>
+							                    </small>
 							                    <span class="user-actions not-following" data-user-id="448977819">
 							                    <a href="#" class="follow-link">
 							                    <span class="link-text follow-text">팔로우</span>
@@ -262,21 +257,22 @@ function addNews() {
                                         <small class="view-all">· <a class="js-view-all-link" href="/who_to_follow/suggestions" data-element-term="view_all_link">모두 보기</a></small>
                                     </div>
                                     <div class="js-recommended-followers dashboard-user-recommendations flex-module-inner" data-section-id="wtf" style="opacity: 1;">
+                                        <c:forEach var="bestClub" items="${getBestClubList}">
                                         <div class="js-account-summary account-summary js-actionable-user " data-user-id="448977819" data-feedback-token="110">
                                             <div class="dismiss js-action-dismiss">
                                                 <i class="close"></i>
                                             </div>
                                             <div class="content">
-                                                <a class="account-group js-recommend-link js-user-profile-link user-thumb" href="/BlizzardCSEU_PT" data-user-id="448977819">
-                                                <img class="avatar js-action-profile-avatar " src="http://img2.esfoo.com/fm2011/clubs_large2/680.jpg" alt="BlizzardCSEU_PT">
+                                                <a class="account-group js-recommend-link js-user-profile-link user-thumb" href="" data-user-id="448977819">
+                                                <img class="avatar js-action-profile-avatar " src="" alt="BlizzardCSEU_PT">
                                                 <span class="account-group-inner js-action-profile-name" data-user-id="448977819">
-                                                <b class="fullname">Wayne Rooney</b>
+                                                <b class="fullname">${bestClub.NAME}</b>
                                                 <span>‏</span>
-                                                <span class="username"><s>@</s><span class="js-username">WayneRooney</span></span>
+                                                <span class="username"><s>@</s><span class="js-username">${bestClub.NAME}</span></span>
                                                 </span>
                                                 </a>
                                                 <small class="metadata social-context">
-                                                <a class="pretty-link user-profile-link js-user-profile-link" data-user-id="174315652" href="/BlizzardCS_KR" title="블리자드 고객지원"><b>블리자드 고객지원</b></a> 님 외 <a href="/BlizzardCSEU_PT/followers_you_follow" class="pretty-link"><b>다수</b></a>가 팔로우함 </small>
+                                                <a class="pretty-link user-profile-link js-user-profile-link" data-user-id="174315652" href="" title="블리자드 고객지원">${bestClub.DIVISION}</a> </small>
                                                 <span class="user-actions not-following" data-user-id="448977819">
                                                 <a href="#" class="follow-link">
                                                 <span class="link-text follow-text">팔로우</span>
@@ -284,50 +280,7 @@ function addNews() {
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="js-account-summary account-summary js-actionable-user " data-user-id="107021530" data-feedback-token="109">
-                                            <div class="dismiss js-action-dismiss">
-                                                <i class="close"></i>
-                                            </div>
-                                            <div class="content">
-                                                <a class="account-group js-recommend-link js-user-profile-link user-thumb" href="/ShesMD" data-user-id="107021530">
-                                                <img class="avatar js-action-profile-avatar " src="http://img2.esfoo.com/fm2011/clubs_large2/1708.jpg" alt="쉬즈엠디">
-                                                <span class="account-group-inner js-action-profile-name" data-user-id="107021530">
-                                                <b class="fullname">Ji Sung Park</b>
-                                                <span>‏</span>
-                                                <span class="username"><s>@</s><span class="js-username">RealParkJiSung</span></span>
-                                                </span>
-                                                </a>
-                                                <small class="metadata social-context">
-                                                </small>
-                                                <span class="user-actions not-following" data-user-id="107021530">
-                                                <a href="#" class="follow-link">
-                                                <span class="link-text follow-text">팔로우</span>
-                                                </a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="js-account-summary account-summary js-actionable-user " data-user-id="107021530" data-feedback-token="109">
-                                            <div class="dismiss js-action-dismiss">
-                                                <i class="close"></i>
-                                            </div>
-                                            <div class="content">
-                                                <a class="account-group js-recommend-link js-user-profile-link user-thumb" href="/ShesMD" data-user-id="107021530">
-                                                <img class="avatar js-action-profile-avatar " src="http://img2.esfoo.com/fm2011/clubs_large2/1736.jpg" alt="쉬즈엠디">
-                                                <span class="account-group-inner js-action-profile-name" data-user-id="107021530">
-                                                <b class="fullname">Chu Young Park</b>
-                                                <span>‏</span>
-                                                <span class="username"><s>@</s><span class="js-username">Chu Young Park</span></span>
-                                                </span>
-                                                </a>
-                                                <small class="metadata social-context">
-                                                </small>
-                                                <span class="user-actions not-following" data-user-id="107021530">
-                                                <a href="#" class="follow-link">
-                                                <span class="link-text follow-text">팔로우</span>
-                                                </a>
-                                                </span>
-                                            </div>
-                                        </div>
+                                        </c:forEach>                                        
                                     </div>
                                     <div class="flex-module-footer">
                                         <a href="/who_to_follow/interests" class="js-interests-link" data-element-term="interests_link">주제별로 찾기</a> · <a href="/who_to_follow/import" class="js-find-friends-link" data-element-term="import_link">친구 찾기</a>
@@ -339,7 +292,7 @@ function addNews() {
 						    <div class="content-header">
 						        <div class="header-inner">
 						            <h3 class="js-timeline-title" style="display: inline;">최신뉴스</h3>						            
-						              <a class="btn primary-btn tweet-action" style="float: right; margin-top: -5px;" type="button" href="info/form">글쓰기</a>						            
+						              <a class="btn primary-btn tweet-action" style="float: right; margin-top: -5px;" type="button" href="news/form">글쓰기</a>						            
 						        </div>
 						    </div>
 						    <div class="stream-container " data-max-id="302023254317608959" data-since-id="304214130078916608">
@@ -357,9 +310,9 @@ function addNews() {
 							                                <small class="time">
 							                                <a href="" class="tweet-timestamp js-permalink js-nav" title="오전 11:11 - 2013년 2월 22일"><span class="_timestamp js-short-timestamp js-relative-timestamp" data-time="1361499105" data-long-form="true">2시간</span></a>
 							                                </small>
-							                                <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav" href="#" data-user-id="791556422">
+							                                <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav" href="/news/${news.NUM}" data-user-id="791556422">
 							                                <img class="avatar js-action-profile-avatar" src="" alt="애니팡 for Kakao">
-							                                <strong class="fullname js-action-profile-name show-popup-with-id">${news.subject}</strong>
+							                                <strong class="fullname js-action-profile-name show-popup-with-id">${news.SUBJECT}</strong>
 							                                <span>‏</span>
 							                                </a>
 							                            </div>
@@ -408,7 +361,7 @@ function addNews() {
 						                <div class="timeline-end has-items">
 						                    <div class="stream-end">
 						                        <div class="stream-end-inner" id="testDIV">
-						                         <a class="btn" type="button" href="info/form">더보기</a>
+						                         <button class="btn" type="button" id="news">더보기</button>
 						                        </div>
 						                    </div>
 						                </div>

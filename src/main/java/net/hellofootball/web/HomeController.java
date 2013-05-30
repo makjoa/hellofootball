@@ -36,14 +36,6 @@ public class HomeController {
 		return "tactics/index";
 	}	
 	
-	@RequestMapping("/news")
-	public String index(Model model) {				
-		//model.addAttribute("m_id", id);
-		model.addAttribute("getNewsList", articleService.getArticleList());
-		return "news/index";
-		
-	}
-	
 	@RequestMapping("/map")
 	public String getGis() {					
 		return "map/map";
