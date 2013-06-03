@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Daum에디터 - 파일 첨부</title> 
-<script type="text/javascript" src="<%=request.getContextPath()%>/common/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="http://localhost:8080/common/js/jquery-1.9.0.min.js"></script>
 <script src="http://s1.daumcdn.net/editor/releases/6.94/js/editor_cafe.js" type="text/javascript" charset="utf-8"></script>
-<script src="../../js/popup.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://localhost:8080/resources/editor/js/popup.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script> 
 <style type="text/css">
     html, body { overflow:hidden; }
     body { margin:0; padding:0; background-color:#a0a0a0; }
@@ -198,50 +200,33 @@
 </style>
 <script type="text/javascript">
 function submit() { 
-	var fileForm = $("#fileForm");
-    fileForm.submit();
-    done();
-}
-
-function done() {
-    if (typeof(execAttach) == 'undefined') { //Virtual Function
-        return;
-    }
-    var file = $("#file");
-    var fileForm = $("#fileForm");
-
-/*     $.ajax({
-        type        : "get",            
-        url         : "/attachments",
-        data        : file,          
-        async       : false,         
-        dataType    : "json",
-        headers: {'Content-type':'multipart/form-data'},
-        beforeSend  : function() {
-
+	var fileForm = $("#attachment");
+    $('#attachment').ajaxForm({
+        type        : "post",            
+        url           : "http://localhost:8080/attachments",                
+        dataType : "json",
+        beforeSerialize: function() {
+           
         },
-        success     : function(data){
-        	console.log(data);
-            
+        beforeSubmit : function() {
+           
+        },
+        success   : function(data){
+        	console.log(data.type);
+        	var _mockdata = {
+            'attachurl': '${pageContext.request.contextPath}/user_files/'+data.url,
+            'filemime': data.type,
+            'filename': data.filename,
+            'filesize': data.filesize
+        };
+        execAttach(_mockdata);
+        closeWindow();        
         },
         error       : function (e, state) {                 
                             
         }
-    }); */
-     
-    
-    
-    console.log(file);
-    var _mockdata = {
-        'imageurl': "${url}",
-        'filename': "${url}",
-        'filesize': 640,
-        'imagealign': 'C',
-        'originalurl': "",
-        'thumburl': 'http://cfile284.uf.daum.net/P150x100/116E89154AA4F4E2838948'
-    };
-    //execAttach(_mockdata);
-    //closeWindow();
+    }).submit(); 
+    //fileForm.submit();
 }
 
 function initUploader(){
@@ -251,7 +236,7 @@ function initUploader(){
         return;
     }
     
-    var _attacher = getAttacher('image', _opener);
+    var _attacher = getAttacher('file', _opener);
     registerAction(_attacher);
 }
 </script>
@@ -262,9 +247,13 @@ function initUploader(){
   <div id="attach-header" class="attach-header">
     <div id="tx_file_attach_layer">
         <div id="tx_file_attach_button">
-        <form:form id="fileForm" name="fileForm" method="post" action="/attachments" enctype="multipart/form-data">
-            <input type="file" id="file" name="file" />            
-        </form:form>
+        <form id="attachment" name="attachment" method="post" action="/attachments" enctype="multipart/form-data">
+            <input type="hidden" id="attachurl" value="${url}" />
+            <input type="hidden" id="filemime" value="${type}" />
+            <input type="hidden" id="filename" value="${filename}" />
+            <input type="hidden" id="filesize" value="${filesize}" />
+            <input type="file" id="file" name="file" />         
+        </form>
         </div>
     </div>
     <p>최대 <strong id="max_top_size" class="point nospacing">3M</strong>까지 첨부하실 수 있습니다.</p>
@@ -296,7 +285,7 @@ function initUploader(){
     <!-- TODO : blog는 위 링크를 http://blog.daum.net/ahahblog/13757174 로 사용한다 -->
   </div>
   <ul id="attach-footer" class="attach-footer">
-    <li id="submit" class="imgbtn"><a href="#" onclick="submit();" title="등록" class="btnlink">등록</a> </li>
+    <li id="submit" class="imgbtn"><input type="button" title="등록" onclick="submit();" class="btnlink" value="등록" /></li>
     <li id="cancel" class="imgbtn"><a href="#" onclick="cancelUpload();" title="취소" class="btnlink">취소</a></li>
     <li id="close" class="imgbtn"><a href="#" onclick="cancelUpload();" title="닫기" class="btnlink">닫기</a></li>
   </ul>

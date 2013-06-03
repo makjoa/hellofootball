@@ -8,13 +8,15 @@ import java.util.Map;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 public class Attachment {
 	public static final String ATTACHMENT_DOWNLOAD_PREFIX = "/attachments";
 
 	public static final String[] IMAGE_EXTENSIONS = { "jpg", "jpeg", "gif", "png" };
 
-
+	private MultipartFile file;
+	
 	private String id;
 
 	private String user;
@@ -97,5 +99,13 @@ public class Attachment {
 		values.put("originalFileName", getOriginalFilename());
 		values.put("createdDate", getCreatedDate());
 		return values;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 }
