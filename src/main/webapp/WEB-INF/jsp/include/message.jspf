@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="alert-messages hidden" id="message-drawer" style="opacity: 1;">
+    <div class="message ">
+        <div class="message-inside"> <span class="message-text">이미지를 선택하지 않았습니다.</span><a class="dismiss" href="#" style="">×</a>
+
+        </div>
+    </div>
+</div>
