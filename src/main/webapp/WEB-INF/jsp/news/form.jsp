@@ -45,15 +45,14 @@
                         </div>
                         <div class="content-inner no-stream-end">
 				            <c:set var="method" value="POST" />
-				            <c:if test="${not empty getNews}">
+				            <c:if test="${not empty news.id}">
 				                <c:set var="method" value="PUT" />
 				            </c:if>                        
-							<form:form name="tx_editor_form" id="tx_editor_form" action="/news" method="${method}" accept-charset="utf-8">
+							<form:form modelAttribute="news" name="news" id="news" action="/news" method="${method}" accept-charset="utf-8">
 								<div id="write_head">								    
 								    <span>
-								    <input type="hidden" id="num" name="num" value="${getNews.num}">
-								    <input type="hidden" id="mb_id" name="mb_id" value="makjoa">
-								    <textarea id="contents_source" name="contents_source" style="display: none;">${getNews.content}</textarea>
+								    <form:hidden path="num" />
+								    <form:hidden path="mb_id" value="makjoa" />								    
 								    <select id="cat_name" name="cat_name" class="inp" onchange="changeBBS(this.value);">
 								        <option value="">게시판 선택 </option>
 								        <option selected="selected" value="KLC">K리그 클래식</option>
@@ -72,7 +71,7 @@
 								</div>							
 	                            <div id="write_title" class="line_sub" style="background-color: rgb(255, 255, 255);">                               
 	                                <p class="title_inp">
-	                                    <input type="text" maxlength="150" class="inp" id="subject" name="subject" style="font-size: 9pt; font-weight: normal; background-color: rgb(255, 255, 255); width: 725px;" placeholder="제목을 입력해 주세요" value=${getNews.subject}>
+	                                    <form:input path="subject" maxlength="150" class="inp" id="subject" name="subject" style="font-size: 9pt; font-weight: normal; background-color: rgb(255, 255, 255); width: 725px;" placeholder="제목을 입력해 주세요" />
 	                                </p>                                
 	                                <span class="title_cnt" style="display:none;"><span id="textlimit" class="point">0</span> / 75자</span>
 	                            </div>
@@ -546,7 +545,7 @@
         txProject: 'sample', /* 수정필요없음. 프로젝트가 여러개일 경우만 수정한다. */
         initializedId: "", /* 대부분의 경우에 빈문자열 */
         wrapper: "tx_trex_container", /* 에디터를 둘러싸고 있는 레이어 이름(에디터 컨테이너) */
-        form: 'tx_editor_form'+"", /* 등록하기 위한 Form 이름 */
+        form: 'news'+"", /* 등록하기 위한 Form 이름 */
         txIconPath: "${pageContext.request.contextPath}/resources/editor/images/icon/editor", /*에디터에 사용되는 이미지 디렉터리, 필요에 따라 수정한다. */
         txDecoPath: "${pageContext.request.contextPath}/resources/editor/images/deco/contents", /*본문에 사용되는 이미지 디렉터리, 서비스에서 사용할 때는 완성된 컨텐츠로 배포되기 위해 절대경로로 수정한다. */
         canvas: {
@@ -679,9 +678,10 @@
         }
         return true;
     }
-     </script>                                
-     <c:if test="${not empty getNews}">
-     <script> 
+    </script>        
+    <c:if test="${not empty news}">    
+    <textarea id="contents_source" name="contents_source" style="display: none;">${news.content}</textarea> 
+    <script> 
      /* 저장된 컨텐츠를 불러오기 위한 함수 호출 */
      Editor.modify({
          "content": document.getElementById("contents_source") /* 내용 문자열, 주어진 필드(textarea) 엘리먼트 */

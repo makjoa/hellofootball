@@ -1,10 +1,7 @@
 package net.hellofootball.web;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.annotation.MultipartConfig;
 
 import net.hellofootball.domain.news.News;
 import net.hellofootball.service.article.ArticleService;
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartRequest;
 
 @Controller
 @RequestMapping("/news")
@@ -57,33 +53,30 @@ public class NewsController {
 		return "jsonView";
 	}
 	
-	@RequestMapping(value = { "/form" } , method = RequestMethod.GET)
-	public String form(Model model) {		
+	@RequestMapping("/form")
+	public String createForm(Model model) {	
+		model.addAttribute("news", new News());
 		return "news/form";
-
 	}	
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(@ModelAttribute("News") News news) {		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+	public String create(News news) {		
+		logger.debug("News : {}" + news);
 		System.out.println(news.toString());
 		newsService.insertNews(news);						
-//		map.put("count", insertCount);
-//		newsCount(m_id, map);
 		return "redirect:/news";
 	}	
 	
 	@RequestMapping("{id}/form")
 	public String updateForm(@PathVariable int id, Model model) {
-		model.addAttribute("getNews", newsService.getNews(id));			
+		model.addAttribute("news", newsService.getNews(id));			
 		return "news/form";
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public String update(News news) {
 		newsService.updateNews(news);
-		return "news/view";
+		return "redirect:/news/"+news.getNum();
 	}		
 	
 	@RequestMapping("{id}")
