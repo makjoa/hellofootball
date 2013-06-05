@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
-
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 
 <!-- end loading layer -->
 <script type="text/javascript">window.jstTemplates = new Object();</script>
@@ -720,7 +718,3 @@
 <jsp:directive.include file="../include/footer.jspf"/>
 </div>
 </div>
-</div>
-
-</body>
-</html>

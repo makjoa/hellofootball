@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
   <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/modules/app/tc.js"></script>
-            <div id="page-outer" class="main_container">
-              <!-- 컨텐츠 시작 -->   
-                <div id="page-container" class="wrapper wrapper-profile white">
-                    
                     <div class="dashboard" style="width: 332px; float:left;">
                         <div class="module mini-profile">
                             <div class="flex-module profile-summary js-profile-summary">
@@ -126,8 +120,3 @@
                             <img id="field_image" src="<%=request.getContextPath()%>/resources/images/pitch.jpg" alt="">
                         </div>                        
                     </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>

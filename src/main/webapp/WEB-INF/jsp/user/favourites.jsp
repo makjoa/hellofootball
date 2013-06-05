@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/modules/app/tc.js"></script>
-            <div id="page-outer" class="main_container">
-                <!-- 컨텐츠 시작 -->   
-                <div id="page-container" class="wrapper wrapper-profile white">
                     <div class="dashboard" style="width: 302px; float:left;">
                         <div class="module mini-profile">
                             <div class="flex-module profile-summary js-profile-summary">
@@ -41,9 +36,9 @@
                                     ..
                                 </p>
                             </div>
-                        </div>
-                        <form class="js-search-form content-searchbar form-horizontal" action="/user/updateFav" method="POST" id="fav_form">
-                        <div class="content-inner no-stream-end widgets">                            
+                        </div>                        
+                        <div class="content-inner no-stream-end widgets">
+                            <form class="js-search-form content-searchbar form-horizontal" action="/user/updateFav" method="POST" id="fav_form">                            
                                 <div id="settings-alert-box" class="alert hidden">
                                     <i id="settings-alert-close" class="close"></i>
                                 </div>                                
@@ -119,16 +114,5 @@
                                     <button id="settings_save" class="btn primary-btn" type="submit">변경사항 저장하기</button>
                                 </div>
                                 </form>
+                                </div>
                             </div>                            
-                        </div>
-                    </div>
-
-        <!--
-        
-        <jsp:directive.include file="../include/footer.jspf"/>
-        -->
-                </div>
-            </div>
-        </div>
-    </body>
-</html>

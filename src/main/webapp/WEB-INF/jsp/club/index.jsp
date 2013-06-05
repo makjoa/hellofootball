@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
-            <section>
-                <div id="page-outer" class="main_container">                
-                    <div id="page-container" class="wrapper wrapper-profile white">
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
                         <jsp:directive.include file="../include/collapse.jspf"/>
                         <!-- 
                         <div class="content-top">
@@ -329,10 +325,4 @@
                                     </div>                                    
                                 </div>
                             </div>                            
-                        </div>                                                
-                    </div>
-                </div>
-            </section>      
-        </div>
-    </body>
-</html>
+                        </div>

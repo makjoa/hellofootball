@@ -199,7 +199,12 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
         </dependency> 		
- 		
+ 		<!-- Tiles -->
+        <dependency>
+        	<groupId>org.apache.tiles</groupId>
+        	<artifactId>tiles-extras</artifactId>
+        	<version>3.0.1</version>
+        </dependency>
 </dependencies>
 	<build>
 		<plugins>

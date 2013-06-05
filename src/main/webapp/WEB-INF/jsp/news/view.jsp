@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/editor/css/editor.css" type="text/css" charset="utf-8"/>
-<script src="<%=request.getContextPath()%>/resources/editor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>
-            <%=request.getContextPath()%>
-            <div id="page-outer" class="main_container">
-                <!-- 컨텐츠 시작 -->
-                <div id="page-container" class="wrapper wrapper-profile white">
+<script src="<%=request.getContextPath()%>/resources/editor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>            
                     <div class="dashboard" style="width: 222px; float:left;">
                         <div class="module mini-profile">
                             <div class="flex-module profile-summary js-profile-summary">
@@ -66,11 +61,3 @@
 							</div>
                         </div>
                     </div>
-                    <!--
-                    <jsp:directive.include file="../include/footer.jspf"/>
-                    -->
-                </div>
-            </div>
-        </div>
-    </body>
-</html>

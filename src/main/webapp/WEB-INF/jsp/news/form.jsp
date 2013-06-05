@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/editor/css/editor.css" type="text/css" charset="utf-8"/>
-<script src="${pageContext.request.contextPath}/resources/editor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>            
-            <div id="page-outer" class="main_container">
-                <!-- 컨텐츠 시작 -->
-                <div id="page-container" class="wrapper wrapper-profile white">
+<script src="${pageContext.request.contextPath}/resources/editor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>
                     <div class="dashboard" style="width: 222px; float:left;">
                         <div class="module mini-profile">
                             <div class="flex-module profile-summary js-profile-summary">
@@ -45,7 +41,7 @@
                         </div>
                         <div class="content-inner no-stream-end">
 				            <c:set var="method" value="POST" />
-				            <c:if test="${not empty news.id}">
+				            <c:if test="${not empty news.mb_id}">
 				                <c:set var="method" value="PUT" />
 				            </c:if>                        
 							<form:form modelAttribute="news" name="news" id="news" action="/news" method="${method}" accept-charset="utf-8">
@@ -69,7 +65,7 @@
 								        <span id="allowProductInfoWrap" style="display: none;"><input type="checkbox" id="allowProductInfo" name="allowProductInfo" onclick="Escrow.setVisibleForms(this.checked);" checked="checked"><label for="allowProductInfo">상품정보 포함</label></span>
 								    </p>
 								</div>							
-	                            <div id="write_title" class="line_sub" style="background-color: rgb(255, 255, 255);">                               
+	                            <div id="write_title" class="line_sub" style="">                               
 	                                <p class="title_inp">
 	                                    <form:input path="subject" maxlength="150" class="inp" id="subject" name="subject" style="font-size: 9pt; font-weight: normal; background-color: rgb(255, 255, 255); width: 725px;" placeholder="제목을 입력해 주세요" />
 	                                </p>                                
@@ -691,11 +687,3 @@
 
                         </div>
                     </div>
-                    <!--
-                    <jsp:directive.include file="../include/footer.jspf"/>
-                    -->
-                </div>
-            </div>
-        </div>
-    </body>
-</html>

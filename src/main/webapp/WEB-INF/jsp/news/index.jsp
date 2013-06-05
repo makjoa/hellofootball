@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 <script type="text/javascript">
 
     var count = 0;
@@ -107,10 +106,6 @@ function addNews() {
         $newNews.fadeIn();
 }	
 </script>
-
-            <section>
-                <div id="page-outer" class="main_container">                 
-                    <div id="page-container" class="wrapper wrapper-profile white">
 						<div class="content-top">
 						    <div class="module">
 						        <div class="flex-module profile-summary js-profile-summary">
@@ -147,17 +142,17 @@ function addNews() {
 											        <div class="list-link">
 														<div class="media-row">
 														    <div class="media-row-content photo-list">
-														        <a data-status-id="315381454987210752" data-url="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS9qUk5NdDl3ektFRS9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=uKfiwWkaDxiUS50m2FPgvtJoG_XoI7MGztW31WFyjFo" data-resolved-url-thumb="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS9qUk5NdDl3ektFRS9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=uKfiwWkaDxiUS50m2FPgvtJoG_XoI7MGztW31WFyjFo" data-resolved-url-small="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS9qUk5NdDl3ektFRS9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=uKfiwWkaDxiUS50m2FPgvtJoG_XoI7MGztW31WFyjFo" data-resolved-url-large="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS9qUk5NdDl3ektFRS9tYXhyZXNkZWZhdWx0LmpwZxQEFgASAA&amp;s=01Z-xQeM0HTevw4dIQozDaKUvB3rjZQ71ruW-uXeBDk" data-source-url="https://www.youtube.com/embed/jRNMt9wzKEE" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
-														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS9qUk5NdDl3ektFRS9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=uKfiwWkaDxiUS50m2FPgvtJoG_XoI7MGztW31WFyjFo" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
+														        <a data-status-id="315381454987210752" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/jRNMt9wzKEE" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
 														        </a>
-														        <a data-status-id="315378084213841920" data-url="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kyLnl0aW1nLmNvbS92aS9Jd1lTVVZmOFR2cy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=dWbSHaaM1TntYJOkFkdbXXdGNwMK2ZClsWX-zFg6H6w" data-resolved-url-thumb="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kyLnl0aW1nLmNvbS92aS9Jd1lTVVZmOFR2cy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=dWbSHaaM1TntYJOkFkdbXXdGNwMK2ZClsWX-zFg6H6w" data-resolved-url-small="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kyLnl0aW1nLmNvbS92aS9Jd1lTVVZmOFR2cy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=dWbSHaaM1TntYJOkFkdbXXdGNwMK2ZClsWX-zFg6H6w" data-resolved-url-large="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kyLnl0aW1nLmNvbS92aS9Jd1lTVVZmOFR2cy9tYXhyZXNkZWZhdWx0LmpwZxQEFgASAA&amp;s=Dxk4GEhHed-EMF7Zfu5Cvd4V9nwRLS-E_rjjcvwGmFc" data-source-url="https://www.youtube.com/embed/IwYSUVf8Tvs" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
-														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kyLnl0aW1nLmNvbS92aS9Jd1lTVVZmOFR2cy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=dWbSHaaM1TntYJOkFkdbXXdGNwMK2ZClsWX-zFg6H6w" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
+														        <a data-status-id="315378084213841920" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/IwYSUVf8Tvs" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
 				                                                </a>
-														        <a data-status-id="315297862890172417" data-url="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS96ZTBKZHZVVV94Zy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=RgHcNlS2e0vu8-JDZDy1p5mRmDIYK1hwPzjAMJgj3HQ" data-resolved-url-thumb="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS96ZTBKZHZVVV94Zy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=RgHcNlS2e0vu8-JDZDy1p5mRmDIYK1hwPzjAMJgj3HQ" data-resolved-url-small="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS96ZTBKZHZVVV94Zy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=RgHcNlS2e0vu8-JDZDy1p5mRmDIYK1hwPzjAMJgj3HQ" data-resolved-url-large="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS96ZTBKZHZVVV94Zy9tYXhyZXNkZWZhdWx0LmpwZxQEFgASAA&amp;s=0fgwE4VAKsQKcvtVT0kM5EzxT16uFVfgbwG_vHmHhLE" data-source-url="https://www.youtube.com/embed/ze0JdvUU_xg" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
-														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="https://o.twimg.com/1/proxy.jpg?t=FQQVBBg0aHR0cDovL2kzLnl0aW1nLmNvbS92aS96ZTBKZHZVVV94Zy9tYXhyZXNkZWZhdWx0LmpwZxQCFgASAA&amp;s=RgHcNlS2e0vu8-JDZDy1p5mRmDIYK1hwPzjAMJgj3HQ" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
+														        <a data-status-id="315297862890172417" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large= data-source-url="https://www.youtube.com/embed/ze0JdvUU_xg" data-height="244" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.66393442622952px; left: -25.83196721311476px; top: 0px;">
 				                                                </a>
-														        <a data-status-id="315148093538578433" data-url="https://o.twimg.com/1/proxy.jpg?t=FQQVBBgwaHR0cDovL2kzLnl0aW1nLmNvbS92aS96SU1kQks4eXJfZy9tcWRlZmF1bHQuanBnFAIWABIA&amp;s=1j0dn5nHO0pofVhuvLAY80W6au4sKr8HM3mMk-XFaGw" data-resolved-url-thumb="https://o.twimg.com/1/proxy.jpg?t=FQQVBBgwaHR0cDovL2kzLnl0aW1nLmNvbS92aS96SU1kQks4eXJfZy9tcWRlZmF1bHQuanBnFAIWABIA&amp;s=1j0dn5nHO0pofVhuvLAY80W6au4sKr8HM3mMk-XFaGw" data-resolved-url-small="https://o.twimg.com/1/proxy.jpg?t=FQQVBBgwaHR0cDovL2kzLnl0aW1nLmNvbS92aS96SU1kQks4eXJfZy9tcWRlZmF1bHQuanBnFAIWABIA&amp;s=1j0dn5nHO0pofVhuvLAY80W6au4sKr8HM3mMk-XFaGw" data-resolved-url-large="https://o.twimg.com/1/proxy.jpg?t=FQQVBBgwaHR0cDovL2kzLnl0aW1nLmNvbS92aS96SU1kQks4eXJfZy9tcWRlZmF1bHQuanBnFAQWABIA&amp;s=Lb_Hs6uIREsLOhFe-7KtgfPCxt5bJzSQfxf1vastKJU" data-source-url="https://www.youtube.com/embed/zIMdBK8yr_g" data-height="326" data-width="435" class="media-thumbnail video" data-load-status="loaded">
-														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="https://o.twimg.com/1/proxy.jpg?t=FQQVBBgwaHR0cDovL2kzLnl0aW1nLmNvbS92aS96SU1kQks4eXJfZy9tcWRlZmF1bHQuanBnFAIWABIA&amp;s=1j0dn5nHO0pofVhuvLAY80W6au4sKr8HM3mMk-XFaGw" style="position: absolute; height: 66px; width: 117.33333333333333px; left: -25.666666666666664px; top: 0px;">
+														        <a data-status-id="315148093538578433" data-url="" data-resolved-url-thumb="" data-resolved-url-small="" data-resolved-url-large="" data-source-url="https://www.youtube.com/embed/zIMdBK8yr_g" data-height="326" data-width="435" class="media-thumbnail video" data-load-status="loaded">
+														            <button type="button" class="icon play"><span class="visuallyhidden">재생</span></button><img src="" style="position: absolute; height: 66px; width: 117.33333333333333px; left: -25.666666666666664px; top: 0px;">
 				                                                </a>
 														        <span class="thumbnail-placeholder first"></span>
 														    </div>
@@ -371,11 +366,3 @@ function addNews() {
 						    <div class="flex-module profile-summary js-profile-summary">
 						    </div>
 						</div>
-						<!--  -->
-                        <jsp:directive.include file="../include/footer.jspf"/>
-                    </div>
-                </div>
-            </section>      
-        </div>
-    </body>
-</html>

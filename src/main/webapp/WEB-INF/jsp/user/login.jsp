@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/common/js/signup.js"></script>
-		<div id="page-outer" class="main_container">
-		    <!-- 컨텐츠 시작 -->
-		    <div id="page-container" class="wrapper wrapper-profile white">
 		        <div class="sign-in">
 		            <div class="signin-box">
 		                <h2>로그인 <strong></strong></h2>
@@ -34,8 +30,3 @@
 		                </ul>
 		            </div>
 		        </div>
-		    </div>
-		</div>
-</div>  
-</body>
-</html>

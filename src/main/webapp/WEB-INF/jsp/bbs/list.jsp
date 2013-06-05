@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/common/daum/css/default.css">
  <div id="content-outer" class="main_container">   
    
@@ -360,8 +359,3 @@
 </div>
 <!-- end content -->
 </div>
-<jsp:directive.include file="../include/footer.jspf"/>
-</div>
-
-</body>
-</html>

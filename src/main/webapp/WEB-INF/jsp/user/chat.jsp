@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
     <script type="text/javascript" src='<%=request.getContextPath()%>/resources/js/node_modules/irc/lib/codes.js'></script>
     <script type="text/javascript" src='<%=request.getContextPath()%>/resources/js/node_modules/irc/lib/colors.js'></script>
     <script type="text/javascript" src='<%=request.getContextPath()%>/resources/js/node_modules/irc/lib/irc.js'></script>
@@ -137,9 +135,6 @@
 
     }
     </script>
-            <section>
-                <div id="page-outer" class="main_container">                
-                    <div id="page-container" class="wrapper wrapper-profile white">
                         <jsp:directive.include file="../include/collapse.jspf"/>
                         <div class="content-top">
                             <div class="module">
@@ -484,10 +479,3 @@
                                 </div>
                             </div>
                         </div>
-                        <jsp:directive.include file="../include/footer.jspf"/>                        
-                    </div>
-                </div>
-            </section>      
-        </div>
-    </body>
-</html>

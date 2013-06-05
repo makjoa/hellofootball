@@ -1,22 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
-            <div id="page-outer" class="main_container">
-			    <!-- 컨텐츠 시작 -->
-			    <div id="page-container" class="wrapper wrapper-profile white">
 			        <div class="dashboard" style="width: 302px; float:left;">
 			            <div class="module mini-profile">
 			                <div class="flex-module profile-summary js-profile-summary">
-			                    <a href="/mouse208" class="account-summary account-summary-small js-nav" data-nav="profile">
-			                    <div class="content">
-			                        <div class="account-group js-mini-current-user" data-user-id="129483340" data-screen-name="mouse208">
-			                            <img class="avatar size32" src="https://si0.twimg.com/profile_images/1157074264/38_4_normal.jpg" alt="최중섭" data-user-id="129483340">
-			                            <b class="fullname">최중섭</b>
-			                            <small class="metadata">
-			                            내 프로필 페이지 보기 </small>
-			                        </div>
+			                    <div class="account-summary account-summary-small js-nav" data-nav="profile">
+				                    <div class="content">
+				                        <div class="account-group js-mini-current-user" data-user-id="129483340" data-screen-name="mouse208">
+				                            <img class="avatar size32" src="https://si0.twimg.com/profile_images/1157074264/38_4_normal.jpg" alt="최중섭" data-user-id="129483340">
+				                            <a href="/mouse208"><b class="fullname">최중섭</b></a>
+				                            <small class="metadata">
+				                            내 프로필 페이지 보기 </small>
+				                        </div>
+				                    </div>
 			                    </div>
-			                    </a>
 			                </div>
 			            </div>
 			            <div class="module">
@@ -223,11 +218,3 @@
 			                </form>
 			            </div>
 			        </div>
-			        <!--
-			        <jsp:directive.include file="../include/footer.jspf"/>
-			        -->
-			    </div>
-			</div>
-        </div>
-    </body>
-</html>

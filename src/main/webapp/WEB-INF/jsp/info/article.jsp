@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<jsp:directive.include file="../include/includes.jspf"/>
-<jsp:directive.include file="../include/header.jspf"/>
+<%@include file="/WEB-INF/jsp/include/tags.jspf"%>
 <script>
 
 function create(datanum) {
@@ -11,10 +10,6 @@ function create(datanum) {
 }
 
 </script>
-
-
-      <div id="page-outer" class="main_container">                 
-        <div id="page-container" class="wrapper wrapper-profile white">
           <div class="content-top">
             <div class="module">
               <div class="flex-module profile-summary js-profile-summary">
@@ -160,12 +155,3 @@ function create(datanum) {
             <div class="flex-module profile-summary js-profile-summary">
             </div>         
           </div>
- 
-        
-        <jsp:directive.include file="../include/footer.jspf"/>
-        
-        </div>
-      </div>
-    </div>
-</body>
-</html>
