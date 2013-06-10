@@ -7,11 +7,27 @@ import net.hellofootball.domain.user.User;
 
 public interface UserDao {
 	
-	void updateFavouriteClub(List clubList);
+	User loginCheck(String id, String password);
+	
+	User emailCheck(String email);
 
+	User findByUserName(String screen_name);
+	
+	boolean existsUsername(String screen_name);
+	
+	boolean existsEmail(String email);
+	
+	void addUser(User user);
+	
+	void updateUser(User user);
+	
 	HashMap<String, String> findByFavouriteClub(String screen_name);
 	
-	void updateFavouritePlayer(List playerList);
-
+	void updateFavouriteClub(List clubList);
+	
 	HashMap<String, String> findByFavouritePlayer(String screen_name);
+	
+	void updateFavouritePlayer(List clubList);
+	
+	void updateUserPoint(int setPoint);
 }

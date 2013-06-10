@@ -15,8 +15,7 @@ import net.hellofootball.dao.user.UserDao;
 import net.hellofootball.domain.user.User;
 import net.hellofootball.service.user.UserService;
 
-@Service 
-@Transactional
+@Service
 public class UserServiceImpl extends SqlSessionDaoSupport implements UserService {
 	
 	@Autowired
@@ -25,37 +24,33 @@ public class UserServiceImpl extends SqlSessionDaoSupport implements UserService
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	public User loginCheck(String id, String password) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("id", id);
-		map.put("password", password);	
-		return (User)getSqlSession().selectOne("user.loginProcess", map);						
+		return userDao.loginCheck(id, password);
 	}
 	
 	public User emailCheck(String email) {	
-		return (User) getSqlSession().selectOne("emailCheck", email);					
+		return userDao.emailCheck(email);					
 	}
 	
 	public void addUser(User user) {
-		getSqlSession().insert("user.addUser", user);
+		userDao.addUser(user);
 	}
 	
 	public void updateUser(HashMap<String, String> map) {
 		
 	}
 	
-	public void updateUserPoint(int setPoint) {
-		
-		getSqlSession().update("updateUserPoint", setPoint);
+	public void updateUserPoint(int setPoint) {		
+		userDao.updateUserPoint(setPoint);
 	}
 
 	@Override
 	public User findByUserName(String username) { 
-		return (User)getSqlSession().selectOne("user.findByUserName", username);
+		return userDao.findByUserName(username);
 	}
 
 	@Override
 	public boolean existsUsername(String username) {
-		return getSqlSession().selectOne("user.existsUsername", username);
+		return userDao.existsUsername(username);
 	}
 
 	@Override

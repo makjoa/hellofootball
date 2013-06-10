@@ -1,15 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Daum에디터 - 파일 첨부</title> 
-<script type="text/javascript" src="http://localhost:8080/common/js/jquery-1.9.0.min.js"></script>
+<link href="${ctx}/resources/swfupload/css/custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>  
+<script src="${ctx}/resources/js/json2.js"></script>        
 <script src="http://s1.daumcdn.net/editor/releases/6.94/js/editor_cafe.js" type="text/javascript" charset="utf-8"></script>
 <script src="http://localhost:8080/resources/editor/js/popup.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="<c:url value="/resources/jwork/jwork.fileUpload.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/jwork/jwork.fileDownload.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/swfupload/swfupload/swfupload.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/swfupload/js/swfupload.queue.js" />"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <style type="text/css">
     html, body { overflow:hidden; }
@@ -199,9 +207,15 @@
 .disable-cloud-menu #tx_file_attach_layer_menu {top:11px;}
 </style>
 <script type="text/javascript">
+var fileUploadObj1;
+jQuery(document).ready(function() {
+    fileUploadObj1= new jwork.fileUpload( "", "${ctx}", "null", 
+    	    {maxFileSize: 100, uploadCompleted:uploadCompleted1, beanId:"null", fileType:"all", uploadMode:"db", maxFileCount:30, usePreview:true, useSecurity:false});
+});
 function submit() { 
 	var fileForm = $("#attachment");
-    $('#attachment').ajaxForm({
+	fileUploadObj1.startUpload();
+/*     $('#attachment').ajaxForm({
         type        : "post",            
         url           : "http://localhost:8080/attachments",                
         dataType : "json",
@@ -214,7 +228,7 @@ function submit() {
         success   : function(data){
         	console.log(data.type);
         	var _mockdata = {
-            'attachurl': '${pageContext.request.contextPath}/user_files/'+data.url,
+            'attachurl': '${ctx}/user_files/'+data.url,
             'filemime': data.type,
             'filename': data.filename,
             'filesize': data.filesize
@@ -225,10 +239,12 @@ function submit() {
         error       : function (e, state) {                 
                             
         }
-    }).submit(); 
+    }).submit();  */
     //fileForm.submit();
 }
-
+function uploadCompleted1() {
+	alert("123");
+}
 function initUploader(){
     var _opener = PopupUtil.getOpener();
     if (!_opener) {
@@ -244,17 +260,17 @@ function initUploader(){
 <body onload="initUploader();">
 <div id="wrap">
   <h1>파일 첨부</h1>
-  <div id="attach-header" class="attach-header">
+  <div id="attach-header" class="attach-header enable-cloud-menu">
     <div id="tx_file_attach_layer">
         <div id="tx_file_attach_button">
+<object id="SWFUpload_4" type="application/x-shockwave-flash" data="${ctx}/resources/swfupload/swfupload/swfupload.swf?preventswfcaching=1370826936903" width="92" height="25" class="swfupload"><param name="wmode" value="window"><param name="movie" value="${ctx}/resources/swfupload/swfupload/swfupload.swf?preventswfcaching=1370826936903"><param name="quality" value="high"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_4&amp;uploadURL=%2Fjfile%2FprocessUpload&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=0&amp;params=fileId%3D13f2ba64bcc37%26amp%3BbeanId%3Dnull%26amp%3BuploadPathKey%3D%26amp%3BuseSecurity%3D%26amp%3BuploadMode%3Ddb&amp;filePostName=Filedata&amp;fileTypes=*.*&amp;fileTypesDescription=All%20Files&amp;fileSizeLimit=100%20MB&amp;fileUploadLimit=30&amp;fileQueueLimit=0&amp;debugEnabled=false&amp;buttonImageURL=${ctx}%2Fresources%2Fimages%2Fbt_add.gif&amp;buttonWidth=86&amp;buttonHeight=26&amp;buttonText=&amp;buttonTextTopPadding=0&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=color%3A%20%23000000%3B%20font-size%3A%2012pt%3B&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object>
+        </div>
         <form id="attachment" name="attachment" method="post" action="/attachments" enctype="multipart/form-data">
             <input type="hidden" id="attachurl" value="${url}" />
             <input type="hidden" id="filemime" value="${type}" />
             <input type="hidden" id="filename" value="${filename}" />
-            <input type="hidden" id="filesize" value="${filesize}" />
-            <input type="file" id="file" name="file" />         
-        </form>
-        </div>
+            <input type="hidden" id="filesize" value="${filesize}" />            
+        </form>        
     </div>
     <p>최대 <strong id="max_top_size" class="point nospacing">3M</strong>까지 첨부하실 수 있습니다.</p>
   </div>

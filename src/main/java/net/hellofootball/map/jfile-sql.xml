@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="JFile">
+   
+    <insert id="AttachFileDAO.addAttachFile" parameterType="net.hellofootball.util.jfile.service.impl.JFileVO">
+        INSERT /* 첨부파일 정보 저장 */ 
+          INTO J_ATTACHFILE 
+              (
+               FILE_ID              ,
+               FILE_NAME            , 
+               FILE_SIZE            , 
+               FILE_MASK            , 
+               DOWNLOAD_COUNT       , 
+               DOWNLOAD_EXPIRE_DATE , 
+               DOWNLOAD_LIMIT_COUNT
+              )
+               VALUES
+              (  
+               #fileId#                        ,
+               #fileName#                      , 
+               #fileSize#                      , 
+               #fileMask#                      ,
+                0                              , 
+               #downloadExpireDate#            ,
+               #downloadLimitCount#
+              ) 
+    </insert>
+    
+    <!-- 게시물 수정 -->
+    <update id="update">
+
+    </update>    
+    
+    
+    <!-- 게시물 삭제 -->
+    <delete id="deleteArticle" parameterType="int">
+
+    </delete>
+ 
+</mapper>
