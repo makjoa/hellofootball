@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.hellofootball.dao.user.UserDao;
+import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.domain.user.User;
 import net.hellofootball.service.user.UserService;
 
@@ -23,8 +24,8 @@ public class UserServiceImpl extends SqlSessionDaoSupport implements UserService
 	
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
-	public User loginCheck(String id, String password) {
-		return userDao.loginCheck(id, password);
+	public User loginCheck(LoginCommand loginCommand) {
+		return userDao.loginCheck(loginCommand);
 	}
 	
 	public User emailCheck(String email) {	

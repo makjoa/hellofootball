@@ -13,6 +13,7 @@
         <typeAlias type="net.hellofootball.domain.article.Article" alias="Article"/>
         <typeAlias type="net.hellofootball.domain.news.News" alias="News"/>
         <typeAlias type="net.hellofootball.domain.user.User" alias="User"/>
+        <typeAlias type="net.hellofootball.jfile.service.impl.JFileVO" alias="JFile"/>
     </typeAliases>
   
     <mappers>  
@@ -21,6 +22,7 @@
         <mapper resource="net/hellofootball/map/user-sql.xml"/>
         <mapper resource="net/hellofootball/map/club-sql.xml"/>
         <mapper resource="net/hellofootball/map/people-sql.xml"/>
+        <mapper resource="net/hellofootball/map/jfile-sql.xml"/>
     </mappers>  
   
 </configuration> 

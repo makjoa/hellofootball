@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club">
+
+
+    <!-- 리스트 조회   -->
+    <select id="getClubList" parameterType="HashMap" resultType="HashMap">
+		 SELECT *  
+		 FROM CLUB
+		 WHERE DIVISION_ID = 11 
+		 ORDER BY UNIQUE_ID DESC                
+        <!-- 
+        <where> 
+            <if test="type != null and keyword != null">
+                ${type} LIKE ${keyword}
+            </if>           
+        </where>
+            <if test="startArticleNum != null and endArticleNum != null">               
+                 LIMIT ${startArticleNum}, ${endArticleNum}    
+            </if>
+        -->
+    </select>
+    
+    <select id="getClubJSON" parameterType="String" resultType="HashMap">
+        SELECT * FROM CLUB
+        WHERE NAME LIKE CONCAT('', #{p}, '%') ORDER BY REP DESC LIMIT 6;
+        
+    </select>  
+          
+    <select id="getBestClubList" parameterType="HashMap" resultType="HashMap">
+        SELECT * FROM CLUB
+        WHERE REP BETWEEN '9000' AND '10000' ORDER BY REP DESC;
+    </select>  
+
+    <!-- 전체 레코드 조회   -->
+    <select id="getTotalNum" parameterType="HashMap" resultType="int">
+        SELECT COUNT(*) FROM ARTICLE         
+        <where> 
+            <if test="type != null and keyword != null">
+                ${type} LIKE ${keyword}
+            </if>
+        </where>
+        
+    </select>
+    
+    <!-- 게시물 조회   -->
+    <select id="getClub" parameterType="Long" resultType="HashMap">        
+        SELECT 
+            * 
+        FROM CLUB                      
+        WHERE UNIQUE_ID = #{id}        
+    </select>      
+    
+    <!-- 게시물 등록 -->
+    <insert id="insertArticle" parameterType="Article" keyProperty="num">
+        <selectKey keyProperty="num" resultType="int" order="BEFORE">
+            SELECT COALESCE(MAX(num), 0) + 1 AS num 
+            FROM ARTICLE
+        </selectKey>
+        
+        INSERT INTO ARTICLE (
+              num, reply, parent, is_comment
+            , comment, comment_reply, cat_name, subject
+            , content , link1, link2, link1_hit
+            , link2_hit, trackback, hit, good
+            , nogood, mb_id, password, name
+            , email, homepage, datetime, last, ip)
+        values (
+              #{num}, ' ', 0, 0
+            , 0, ' ', #{cat_name}, #{subject}
+            , #{content}, ' ', ' ', 0
+            , 0, ' ', 0, 0
+            , 0, #{mb_id}, #{password}, #{name} 
+            , #{email}, ' ', NOW(), ' ', ' ')
+    </insert>
+    
+    <!-- 게시물 수정 -->
+    <update id="update">
+        UPDATE  t_sample
+        SET
+              num, reply, parent, is_comment
+            , comment, comment_reply, cat_name, subject
+            , content , link1, link2, link1_hit
+            , link2_hit, trackback, hit, good
+            , nogood, mb_id, password, name
+            , email, homepage, datetime, last, ip)
+        WHERE  num    = #{num}
+    </update>    
+    
+    
+    <!-- 게시물 삭제 -->
+    <delete id="deleteArticle" parameterType="int">
+        DELETE 
+        FROM    ARTICLE
+        WHERE  num = #{num}
+    </delete>
+ 
+</mapper>

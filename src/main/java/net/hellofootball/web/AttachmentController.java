@@ -21,10 +21,10 @@ public class AttachmentController {
 
 	public static final long EXPIRE_MILLIS = 31556926000L; // 1year
 
-//	@RequestMapping(value = "/form")	
-//	public String form(Model model, Attachment attachment)  {
-//		return "../../resources/editor/pages/trex/file";
-//	}
+	@RequestMapping(value = "/form")	
+	public String form(Model model, Attachment attachment)  {
+		return "../../resources/editor/pages/trex/file";
+	}
 	
 	@RequestMapping(value = "")
 	public String upload(MultipartHttpServletRequest request, Model model) throws IOException {		

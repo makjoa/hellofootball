@@ -116,7 +116,7 @@ public class UserController {
 
 		} else {			
 
-			User user = userService.loginCheck(loginCommand.getUsername(), loginCommand.getPassword());
+			User user = userService.loginCheck(loginCommand);
 			System.out.println(user);
 			if(null == user) {
 				return "/user/login";

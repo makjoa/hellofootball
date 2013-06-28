@@ -3,6 +3,7 @@ package net.hellofootball.dao.user;
 import java.util.HashMap;
 import java.util.List;
 
+import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.domain.user.User;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -35,9 +36,9 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
 	}
 
 	@Override
-	public User loginCheck(String id, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public User loginCheck(LoginCommand loginCommand) {
+		
+		return getSqlSession().selectOne("loginCheck", loginCommand);
 	}
 
 	@Override

@@ -3,11 +3,12 @@ package net.hellofootball.dao.user;
 import java.util.HashMap;
 import java.util.List;
 
+import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.domain.user.User;
 
 public interface UserDao {
 	
-	User loginCheck(String id, String password);
+	User loginCheck(LoginCommand loginCommand);
 	
 	User emailCheck(String email);
 
