@@ -4,7 +4,17 @@ var currentData = {};
 
 
 $(function () {
-
+	
+	$("#remember_login").on('click', function(e) {
+		var chk = $(this).is(":checked");
+		
+		if(chk) {
+			$(this).val(1);
+		} else {
+			$(this).val(0);
+		}
+	});
+	
 	$('#news').on('click', function(e){
 		var pageNum = $('#page').val();
 		var a  = ajaxSend("news/json", "page=10"); 

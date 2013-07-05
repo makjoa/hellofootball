@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/include/tags.jspf"%>
+
+<script>
+var cookieValue = ${cookie.remember_checked_on.value}
+
+console.log(cookieValue);
+
+</script>
 <header>
     <div class="topbar js-topbar">
         <div id="banners" class="js-banners">                               
@@ -100,11 +107,11 @@
                                 </fieldset>
                                 <fieldset class="subchck">
                                     <label class="remember">
-                                        <input type="checkbox" value="1" name="remember_me" checked="checked" />
+                                        <input type="checkbox" id="remember_login" value="0" name="remember_login" />
                                         <span>ID 저장</span>
                                     </label>
                                     <button type="submit" class="btn submit">로그인</button>
-                                </fieldset>
+                                </fieldset>                                
                                 <input type="hidden" name="scribe_log">
                                 <input type="hidden" name="redirect_after_login" value="/user/signup">
                                 <input type="hidden" value="74930792d14c53bec350dcdc7186c8e596a454ea" name="authenticity_token">

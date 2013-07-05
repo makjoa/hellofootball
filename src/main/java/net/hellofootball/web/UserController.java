@@ -10,11 +10,13 @@ import net.hellofootball.domain.user.User;
 import net.hellofootball.service.user.UserService;
 import net.hellofootball.realtimeweb.RealtimeWebServer;
 import org.apache.log4j.Logger;
+import org.jboss.netty.handler.codec.http.CookieEncoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.CookieGenerator;
 
 import com.google.gson.Gson;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,6 +42,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	static final String REQUEST_PARAM_NAME = "remeber_login";
+	static final String COOKIE_NAME = "remember_checked_on";
+	static final int DEFAULT_MAX_AGE = 60*60*24*7;
+	 
+	private int maxAge = DEFAULT_MAX_AGE;
+	
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public void signup(User user) {
@@ -102,25 +112,39 @@ public class UserController {
 		
 		return "redirect:/";
 	}
-	
-	@SuppressWarnings("restriction")
+		
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String loginProc(@Valid @ModelAttribute("loginVo") LoginCommand loginCommand, BindingResult bindingResult, Model model, HttpSession session) {
+	public String loginProc(@Valid @ModelAttribute("loginVo") LoginCommand loginCommand, BindingResult bindingResult, 
+			Model model, HttpSession session, HttpServletResponse response) {
 
-		logger.debug(loginCommand.toString());
-
+		
 		if(bindingResult.hasErrors()) {
 
 			model.addAttribute("loginInfo", loginCommand);
 			return "user/login";	
 
 		} else {			
-
 			User user = userService.loginCheck(loginCommand);
-			System.out.println(user);
 			if(null == user) {
 				return "/user/login";
 			} else {
+				System.out.println(loginCommand.getRemember_login());
+				if(loginCommand.getRemember_login().equals("1")) {
+					CookieGenerator cookieGen = new CookieGenerator();
+					
+					cookieGen.setCookieName(COOKIE_NAME);
+					cookieGen.setCookieMaxAge(maxAge);
+					cookieGen.addCookie(response, loginCommand.getUsername());
+					
+					System.out.println("SET COOKIE NAME : " + cookieGen.getCookieName());
+				} else {
+					CookieGenerator cookieGen = new CookieGenerator();
+					
+					cookieGen.setCookieName(COOKIE_NAME);
+					cookieGen.setCookieMaxAge(maxAge);
+					cookieGen.addCookie(response, "");					
+					System.out.println("SET COOKIE NAME : " + cookieGen.getCookieName());
+				}				
 				session.setAttribute("userSession", user);
 				//RealtimeWebServer.send("Comment", user.getUsername().toString(), "new", user.getEmail());
 				return "redirect:/";

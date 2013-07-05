@@ -25,6 +25,7 @@ public class UserServiceImpl extends SqlSessionDaoSupport implements UserService
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	public User loginCheck(LoginCommand loginCommand) {
+		System.out.println(loginCommand.toString());
 		return userDao.loginCheck(loginCommand);
 	}
 	

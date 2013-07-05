@@ -26,17 +26,30 @@ public class LoginCommand {
 	@Size(min = 2, max = 30)
 	private String password;
 	
+	private String remember_login;
+	
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getRemember_login() {
+		return remember_login;
+	}
+
+	public void setRemember_login(String remember_login) {
+		this.remember_login = remember_login;
 	}
 	
 	public LoginCommand() {}
@@ -46,30 +59,13 @@ public class LoginCommand {
 		this.username = username;
 		this.password = password;
 	}
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
-	}
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
-	}
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
-	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "LoginCommand [username=" + username + ", password=" + password
+				+ ", remember_login=" + remember_login + "]";
 	}
-	@Override
-	protected void finalize() throws Throwable {
-		// TODO Auto-generated method stub
-		super.finalize();
-	}
+
+
 
 }

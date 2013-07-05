@@ -81,15 +81,17 @@ public class User {
 	
 	private ArrayList<String>   role;
 
-
-	public User() {}
-
+	private String accessToken;
+	
+	public User() {
+		
+	}
 
 	public User(String username, String name, String nickname, String password,
 			String passwordConfirm, String email, Date joindate,
 			String profile, String mailing, long point, long sid,
 			long unique_id, String favourite_clubs, String favourite_players,
-			ArrayList<String> role) {
+			ArrayList<String> role, String accessToken) {
 		super();
 		this.username = username;
 		this.name = name;
@@ -106,8 +108,8 @@ public class User {
 		this.favourite_clubs = favourite_clubs;
 		this.favourite_players = favourite_players;
 		this.role = role;
+		this.accessToken = accessToken;
 	}
-
 
 	// setters
 	/**
@@ -319,6 +321,14 @@ public class User {
 	public void setFavourite_players(String favourite_players) {
 		this.favourite_players = favourite_players;
 	}	
+
+	public String getAccessToken() {
+		return accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}	
 	
 	public boolean isAccountNonExpired() 
 	{
@@ -341,10 +351,30 @@ public class User {
 	}
 
 	@Override
+	public String toString() {
+		return "User [username=" + username + ", name=" + name + ", nickname="
+				+ nickname + ", password=" + password + ", passwordConfirm="
+				+ passwordConfirm + ", email=" + email + ", joindate="
+				+ joindate + ", profile=" + profile + ", mailing=" + mailing
+				+ ", point=" + point + ", sid=" + sid + ", unique_id="
+				+ unique_id + ", favourite_clubs=" + favourite_clubs
+				+ ", favourite_players=" + favourite_players + ", role=" + role
+				+ ", accessToken=" + accessToken + "]";
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result
+				+ ((accessToken == null) ? 0 : accessToken.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result
+				+ ((favourite_clubs == null) ? 0 : favourite_clubs.hashCode());
+		result = prime
+				* result
+				+ ((favourite_players == null) ? 0 : favourite_players
+						.hashCode());
 		result = prime * result
 				+ ((joindate == null) ? 0 : joindate.hashCode());
 		result = prime * result + ((mailing == null) ? 0 : mailing.hashCode());
@@ -358,9 +388,10 @@ public class User {
 		result = prime * result + (int) (point ^ (point >>> 32));
 		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + (int) (sid ^ (sid >>> 32));
+		result = prime * result + (int) (unique_id ^ (unique_id >>> 32));
 		result = prime * result
 				+ ((username == null) ? 0 : username.hashCode());
-		result = prime * result + (int) (sid ^ (sid >>> 32));
 		return result;
 	}
 
@@ -373,10 +404,25 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (accessToken == null) {
+			if (other.accessToken != null)
+				return false;
+		} else if (!accessToken.equals(other.accessToken))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (favourite_clubs == null) {
+			if (other.favourite_clubs != null)
+				return false;
+		} else if (!favourite_clubs.equals(other.favourite_clubs))
+			return false;
+		if (favourite_players == null) {
+			if (other.favourite_players != null)
+				return false;
+		} else if (!favourite_players.equals(other.favourite_players))
 			return false;
 		if (joindate == null) {
 			if (other.joindate != null)
@@ -420,27 +466,16 @@ public class User {
 				return false;
 		} else if (!role.equals(other.role))
 			return false;
+		if (sid != other.sid)
+			return false;
+		if (unique_id != other.unique_id)
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
 		} else if (!username.equals(other.username))
 			return false;
-		if (sid != other.sid)
-			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "User [username=" + username + ", name=" + name + ", nickname="
-				+ nickname + ", password=" + password + ", passwordConfirm="
-				+ passwordConfirm + ", email=" + email + ", joindate="
-				+ joindate + ", profile=" + profile + ", mailing=" + mailing
-				+ ", point=" + point + ", sid=" + sid + ", unique_id="
-				+ unique_id + ", favourite_clubs=" + favourite_clubs
-				+ ", favourite_players=" + favourite_players + ", role=" + role
-				+ "]";
-	}
-
 
 }

@@ -7,9 +7,9 @@ import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.domain.user.User;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
 
 	@SuppressWarnings("unchecked")

@@ -1,5 +1,8 @@
 package net.hellofootball.web;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.service.article.ArticleService;
 import net.hellofootball.service.club.ClubService;
@@ -8,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -22,7 +26,14 @@ public class HomeController {
 
 	
 	@RequestMapping("/")
-	public String home(Model model, LoginCommand loginCommand) {			
+	public String home(@CookieValue(value="remember_checked_on", required=false) String cookieValue, Model model, LoginCommand loginCommand, HttpServletRequest request) {
+		
+		System.out.println(cookieValue);
+		String cValue = cookieValue;
+		Cookie[] cookies = request.getCookies();
+		
+		System.out.println("COOKIE NAME : " + cValue);
+		
 		model.addAttribute("loginCommand", new LoginCommand());
 		model.addAttribute("getBoardList", articleService.getArticleList());
 		model.addAttribute("getBestClubList", clubService.getBestClubList());
