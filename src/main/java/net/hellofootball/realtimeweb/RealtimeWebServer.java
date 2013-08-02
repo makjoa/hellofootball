@@ -20,6 +20,7 @@ import org.vertx.java.core.sockjs.SockJSSocket;
 /**
  * @author 심영재
  */
+@Component
 public class RealtimeWebServer {
 	
 	private static final HashMap<String, HashMap<String, List<SockJSSocket>>> SOCKET_MAP = new HashMap<>();

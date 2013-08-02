@@ -56,7 +56,7 @@
         <property name="order" value="3" />
 	</bean>
 
-    <bean id="jsonView" class="net.hellofootball.jfile.view.JSonView"/>
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
     
     <bean id="messageSource"
         class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

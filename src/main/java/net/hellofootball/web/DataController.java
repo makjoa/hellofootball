@@ -1,13 +1,17 @@
 package net.hellofootball.web;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
@@ -18,6 +22,9 @@ import org.w3c.dom.NodeList;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -31,11 +38,15 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 @Controller
-@RequestMapping("club")
+@RequestMapping("data")
 public class DataController {
 	
 	@Autowired
@@ -218,6 +229,67 @@ public class DataController {
 		}		
 
 		return "index";
+	}
+	
+	@RequestMapping("/live")
+	public String live() {
+		return "data/live";
+		
+	}
+	
+	@RequestMapping(value= "/liveData", method = RequestMethod.GET)	
+	public String showLiveScore(Model model) throws IOException {
+		
+		URL url;
+		StringBuffer sb = new StringBuffer();
+		
+		url = new URL("http://www.wisetoto.com/mini/mini_ajax.htm?main=livescore&sub=1");
+	
+		String[] HEADINGS = {"Team1", "Score1", "ImageUrl", "Score2", "Team2", "DetailLink"};
+		
+		URLConnection conn = url.openConnection();
+		
+		BufferedReader br = new BufferedReader(
+                           new InputStreamReader(conn.getInputStream()));
+		
+        int cp;
+        while ((cp = br.read()) != -1) {
+            sb.append((char) cp);
+        }
+        
+        br.close();
+	
+		Document doc = Jsoup.parse(sb.toString());
+
+		Elements divElement = doc.select("div#div_live_4");
+		Elements tableElement = divElement.select("tr[align=center]");
+		
+		System.out.println("tableElement.size() : " + tableElement.size());
+		List<HashMap<String, Object>> list = new ArrayList<>();
+		for(int i = 0; i < tableElement.size(); i++) {
+			
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			
+			Elements innerDetails = tableElement.get(i).select("td");
+			System.out.println("innerDetails.size() : " + innerDetails.size());
+			if(innerDetails.size() != 6) {
+				break;
+			}
+			
+			for(int j = 0; j < innerDetails.size(); j++) {
+								
+				if(j == 2 || j == 5) {
+					map.put(HEADINGS[j], innerDetails.get(j).html());
+				} else {				
+					map.put(HEADINGS[j], innerDetails.get(j).text());
+				}
+			}
+			list.add(map);
+		}
+				
+		model.addAttribute("live", list);
+			
+		return "jsonView";
 	}
 
 }

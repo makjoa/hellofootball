@@ -37,7 +37,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/article")
+@RequestMapping("/bbs")
 public class ArticleController {
 	
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
@@ -55,76 +55,44 @@ public class ArticleController {
 	PagingUtil pagingUtil;
 
 	@RequestMapping(value = { "/form" } , method = RequestMethod.GET)
-	public String form(@PathVariable("m_id") String m_id, Model model){		
-
-		model.addAttribute("m_id", m_id);
-
-		return "bbs/write2";
-
+	public String createForm(Model model){	
+		model.addAttribute("Article", new Article());
+		return "bbs/form";
 	}
 
-	@RequestMapping(value = "/write", method = RequestMethod.POST)
-	public String create(@PathVariable("m_id") String m_id, @ModelAttribute("Article") Article article){		
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public String create(Article article){		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		insertCount++;
 		System.out.println(insertCount);
-		article.setCat_name(m_id);
+	
 		articleService.insertArticle(article);
 				
 		map.put("resultData", article);
 		map.put("count", insertCount);
-		articleCount(m_id, map);
-		return "redirect:/"+m_id;
+		articleCount(article.getCat_name(), map);
+		
+		return "redirect:/";
 	}	
 	public void articleCount(String m_id, HashMap<String, Object> map) {
 		RealtimeWebServer.send(m_id, m_id, "new", map);
 	}
 
-	@RequestMapping(value = "/bbs/temp", method = RequestMethod.GET)
-	public ModelAndView getList(@PathVariable("bbsid") String bbsid) {
-		ModelAndView mv = new ModelAndView();
-		//PagingUtil pageUtil = new PagingUtil();
-
-		// expression article variables value
-		startArticleNum = (currentPage - 1) * showArticleLimit + 1;
-		endArticleNum = startArticleNum + showArticleLimit -1;
-
-		System.out.println("--------------------------------------------------");
-
-		//List<Article> list = articleService.list(bbsid);
-		//System.out.println(list);
-		//StringBuffer pageHtml =  pageUtil.getPageHtml(currentPage, totalNum, showArticleLimit, showPageLimit, null, null);
-		//mv.addObject("getList", list);
-		//mv.addObject("pageHtml", pageHtml);
-		mv.setViewName("/bbs/list");
-		return mv;
-	}
-
-	/**
-	 * URL매핑 테스트
-	 * @param jsonData
-	 * @param nickName
-	 * @param model
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-
-	@RequestMapping(value = { "/v={idx}" } , method = RequestMethod.GET)
-	public ModelAndView view(@PathVariable int idx) {
+	@RequestMapping("{idx}")
+	public String view(@PathVariable int idx, Model model) {
 
 		ModelAndView mav = new ModelAndView();		
 		Article article = articleService.getArticle(idx);
 		System.out.println(article.getNum());
-		mav.addObject("getArticle", article);
-		mav.addObject("getArticleIDX", article.getNum());
+		model.addAttribute("getArticle", article);
+		model.addAttribute("getArticleIDX", article.getNum());
 		mav.setViewName("/bbs/view");
 
-		return mav;
+		return "bbs/view";
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/l/{id}", method = RequestMethod.GET)
 	public ModelAndView list(@PathVariable String id,
 			@RequestParam(value="page", required=false) String page, 
 			@RequestParam(value="type", required=false) String type, 
@@ -168,12 +136,12 @@ public class ArticleController {
 		articleList = articleService.getArticleList(startArticleNum, showArticleLimit, type, keyword);		
 		System.out.println("startArticleNum" + startArticleNum + "\nendArticleNum" + endArticleNum + "\nshowArticleLimit"+ showArticleLimit + "\nshowPageLimit" +showPageLimit);
 		//StringBuffer pageHtml =  pageUtil.getPageHtml(currentPage, totalNum, showArticleLimit, showPageLimit, type, keyword);
-		paging = getPagingList(currentPage, totalNum, showArticleLimit, showPageLimit);
+		//paging = getPagingList(currentPage, totalNum, showArticleLimit, showPageLimit);
 
 		mav.addObject("getArticleList", articleList);
 		//mav.addObject("pageHtml", pageHtml);
 		mav.addObject("pagingList", paging);
-		mav.setViewName(id+"/article");
+		mav.setViewName("bbs/view");
 		
 		return mav;
 	}

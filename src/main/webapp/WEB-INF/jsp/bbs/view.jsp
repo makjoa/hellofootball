@@ -1,512 +1,234 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/include/tags.jspf"%>
-
-<div id="cSubWrap" class="smallWidthBack">
-
-
-<div id="loadingLayer" style="display: none;">
-    <div id="loadingIcon"><div id="loadingFlash"></div></div>
-</div>
-<div id="shortLoading" style="display: none;"><img src="<%=request.getContextPath()%>/common/daum/cafe/loading.gif" width="12" height="13" alt="로딩중"></div>
-<!-- end loading layer -->
-<script type="text/javascript">window.jstTemplates = new Object();</script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/common/daum/cafe/mycafe-all.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/common/daum/cafe/jst-all.js"></script>
-<script type="text/javascript">
-    //<![CDATA[
-    new ClientErrorHandler().install();
-    new ServerErrorHandler().install();
-    //]]>
-    function fnCmdDelete(idx) {
-    	alert(idx);
-        document.bbsForm.grpid.value = idx;
-        document.bbsForm.action = '/infoshop/delete';
-        document.bbsForm.submit(); 
-    }
-</script> 
-
-
-<div id="wrap_sub_content" class="mycafeList" ">
-    <div id="primaryContent">
-		<table class="roundTable">
-		<tbody class="pos_rel">
-		<tr>
-		    <td class="tlb" nowrap="">
-		         &nbsp;
-		    </td>
-		    <td class="tcb" nowrap="">
-		         &nbsp;
-		    </td>
-		    <td class="trb" nowrap="">
-		         &nbsp;
-		    </td>
-		</tr>
-		<tr class="pos_rel">
-		    <td class="lb" nowrap="">
-		         &nbsp;
-		    </td>
-		    <td class="cb pos_rel">
-		        <!-- content start -->
-		        <form id="bbsForm" name="bbsForm" method="POST">
-		            <input type="hidden" name="grpid">
-		            <input type="hidden" name="emoticon">
-		            <input type="hidden" name="mgrpid">
-		            <input type="hidden" name="fldid">
-		            <input type="hidden" name="dataid">
-		            <input type="hidden" name="page">
-		            <input type="hidden" name="prev_page">
-		            <input type="hidden" name="firstbbsdepth">
-		            <input type="hidden" name="lastbbsdepth">
-		            <input type="hidden" name="content">
-		            <input type="hidden" name="contentval">
-		            <input type="hidden" name="espam7005533">
-		            <input type="hidden" name="viewcount7005533">
-		            <input type="hidden" name="regdt7005533">
-		            <input type="hidden" name="mode">
-		            <input type="hidden" name="num">
-		            <input type="hidden" name="pardataname">
-		            <input type="hidden" name="parbbsdepth">
-		            <input type="hidden" name="e_paruserid">
-		            <input type="hidden" name="pardatatype">
-		            <input type="hidden" name="parregdt">
-		            <input type="hidden" name="move">
-		            <input type="hidden" name="userlist">
-		            <input type="hidden" name="issueregyn" value="">
-		            <input type="hidden" name="changerolecode" value="">
-		            <div class="list_btn_area list_btn_top">
-		                <a href="/infoshop/bbs/${getArticle.subject}/write" class="btn" title="글쓰기"><span class="btn_bg bg03"></span><span class="btn_txt bt03 w07 b"><span class="btn_icon_write">글쓰기</span></span></a>
-		                <a href="javascript:;" class="btn" onclick="javascript:check_reply('0TOSTzzzzzzzzzzzzzzzzzzzzzzzzz'); return false;" title="답글"><span class="btn_bg bt03"></span><span class="btn_txt bt03 w03">답글</span></a>		                
-		                <a href="" class="btn" title="수정"><span class="btn_bg bt03"></span><span class="btn_txt bt03 w03">수정</span></a>
-		                <a href="javascript:fnCmdDelete(${getArticleIDX});" class="btn" title="삭제"><span class="btn_bg bt03"></span><span class="btn_txt bt03 w03">삭제</span></a>
-		                <span class="list_paging">
-		                <a href="">최신목록</a>
-		                <span class="bar2">|</span>
-		                <a href="">목록</a>
-		                <span class="bar2">|</span>
-		                <span class="arrow">▲</span><a href="">윗글</a>
-		                <span class="bar2">|</span>
-		                <span class="arrow">▼</span><a href="">아랫글</a>
-		                </span>
-		            </div>
-		            <!-- end list_btn_area -->
-		            <div class="cl">
-		                 &nbsp;
-		            </div>
-		            <div class="article_subject line_sub">
-		                <div class="subject">
-		                    <span class="headcate">
-		                    </span>
-		                    <img src="http://m1.daumcdn.net/cafeimg/120810_cafeapplink/pc/ico_mobile.gif?v=1" width="8" height="12" alt="모바일 작성글" class="icon_mobile">
-		                    <span class="b">${getArticle.subject} </span><span class="bar2">|</span><a href="bbs_list?grpid=Jnt6&amp;mgrpid=&amp;fldid=IC6M" class="txt_sub">프리토크</a>
-		                </div>
-		            </div>
-		            <!-- end article_subject -->
-		            <div class="article_writer">
-		                <a href="#" onclick="showSideView(this, 'oGoofvxPM_10', '', '\uADF8\uB808\uC774\uD2B8 \uBC15'); return false;" class="txt_point p11">${getArticle.name}</a>
-		                <span class="bar2">|</span>
-		                <span class="p11">조회 ${getArticle.hit}</span>
-		                <span class="bar2">|</span><span class="p11">추천 0</span>
-		                <span class="bar2">|</span><span class="p11 ls0">${getArticle.date}</span>
-		                <span class="txt_sub url"><a href="http://cafe.daum.net/WorldcupLove/IC6M/7005533" class="copyurl">http://cafe.daum.net/WorldcupLove/IC6M/7005533</a>&nbsp;<embed class="op" onmouseover="this.className=''" onmouseout="this.className='op'" height="13" width="22" src="http://cafecj.daum-img.net/flash/copyClipboard.swf" flashvars="url=http://cafe.daum.net/WorldcupLove/IC6M/7005533&amp;urlName=글" wmode="transparent" allowscriptaccess="always" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" style="vertical-align: middle;"></span>
-		            </div>
-		            <!-- end article_writer -->
-		            <div id="bbs_contents" class="bbs_contents">
-		                <div class="bbs_contents_inbox">
-		                    <div id="user_contents" name="user_contents" class="user_contents tx-content-container scroll">
-		                        <table class="protectTable" id="protectTable">
-		                        <tbody>
-		                        <tr>
-		                            <td>
-		                                <!-- clix_content 이 안에 본문 내용 외에 다른 내용을 절대 넣지 말 것  -->
-		                                <script type="text/javascript">//<![CDATA[
-		                                 document.write(removeRestrictTag());
-		                                  //]]></script>
-		                                 ${getArticle.content} 
-		                                <!-- -->
-		                                <!-- end clix_content -->
-		                            </td>
-		                        </tr>
-		                        </tbody>
-		                        </table>
-		                        <table class="clearTable">
-		                        <tbody>
-		                        <tr>
-		                            <td>
-		                                 &nbsp;
-		                            </td>
-		                        </tr>
-		                        </tbody>
-		                        </table>
-		                    </div>
-		                    <script type="text/javascript">//<![CDATA[
-		                redefineLink();
-		                //]]></script>
-		                </div>
-		            </div>
-		            <!-- end bbs_contents -->
-		            <!-- 이전 첨부파일 영역 -->
-		            <!-- 이전 첨부파일 영역 end -->
-		            <!-- 새로운 첨부파일 영역 -->
-		            <div id="AttachFileCCL" class="attachFile">
-		            </div>
-		            <!-- end CCL area -->
-		            <!-- 모바일 작성글인 경우 카페 앱 소개 링크  -->
-		            <div id="cafeAppLink" onclick="cafeAppLayer.showWrapMini2();" onmouseover="cafeAppLayer.showWrapMini2();" onmouseout="cafeAppLayer.hideWrapMini();">
-		                <p id="cafeAppLinkTarget">
-		                     내 글 반응을 <span class="point">카페앱</span>에서 바로 확인하세요. <span class="down_link">설치하기</span>
-		                </p>
-		            </div>
-		            <div class="comment_scrap" id="comment_wrap">
-		                <p class="comment_view fl">
-		                    <span class="comment_cnt" id="comment_cnt">
-		                    <a href="#" id="member_cmt" onclick="Reply.activeCommentView('7005533', 'member', this); return false;" class="comment_on txt_point">댓글 <span id="cmtCnt">0</span></a>
-		                    </span>
-		                </p>
-		                <div class="fr">
-		                    <div class="fl recommend_wrap">
-		                        <a class="bbs_recommend" href="#" onclick="recommendBBS('Jnt6', 'IC6M', '7005533', '0', true, true, 'WorldcupLove', '%B9%CE%C7%CF+%BE%D6%B0%A1+%BE%D6%B0%B0%C1%F6%B0%A1%BE%CA%BE%C6...'); return false;">
-		                        <span class="bg04 fl left">
-		                        <img src="http://i1.daumcdn.net/cafeimg/cf_img4/img/ico_recommend.gif" width="11" height="13&quot;" alt="추천하기">
-		                        </span>
-		                        <span id="recommendCnt" class="txt_point bg04 fl right">0</span>
-		                        </a>
-		                    </div>
-		                    <div id="readSnsShare" class="sns_share">
-		                        <ul class="sns_items">
-		                            <li class="bg04 first"><a class="mypeople icon" href="" target="_blank" title="마이피플에 보내기"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt=""><span class="sep line">마이피플</span></a></li>
-		                            <li class="bg04"><a class="twitter icon" href="" target="_blank" title="트위터에 보내기"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt=""><span class="sep line">트위터</span></a></li>
-		                            <li class="bg04"><a class="facebook icon" href="" target="_blank" title="페이스북에 보내기"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt=""><span class="sep line">페이스북</span></a></li>
-		                            <li class="bg04"><a id="showMoreSns" class="show_more_sns arrow" href="#"><span class="c txt_sub">▼</span><span class="sep line_sub">SNS 더 보기</span></a></li>
-		                            <li class="bg04 last"><span class="sns_send_count txt_point b">0</span></li>
-		                        </ul>
-		                        <ul id="readSnsShareMore" class="sns_more_items line bg cafeLayer" style="display: none;">
-		                            <li><a class="nate icon" href="" target="_blank" title="C로그에 보내기"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt=""><span>싸이월드</span></a></li>
-		                            <li><a class="me2day" href="" target="_blank" title="미투데이에 보내기"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt=""><span>미투데이</span></a></li>
-		                            <li><a class="yozm" href="" target="_blank" title="요즘에 보내기"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt=""><span>요즘</span></a></li>
-		                        </ul>
-		                    </div>
-		                    <script type="text/javascript">
-		    new daum.cafe.bbs.Sns("readSnsShare");
-		                                </script>
-		                    <div class="fl scrap_wrap">
-		                        <a href="#" id="btnScrapMenu" class="scrap_close p11" onclick="">
-		                        <span class="bg04 fl first">스크랩</span>
-		                        <span class="bg04 fl center"><span class="sep line fl"></span><span class="arrow txt_sub">▼</span><span class="sep line_sub fl"></span></span>
-		                        <span class="bg04 fl txt_point">0</span>
-		                        </a>
-		                    </div>
-		                    <a class="print fl p11" href="/_c21_/bbs_print?grpid=Jnt6&amp;mgrpid=&amp;fldid=IC6M&amp;dataid=7005533" target="_cafePrintWin" onclick="doPrint();return false;">인쇄</a>
-		                    <span class="bar2 fl">|</span>
-		                    <a class="spam fl p11" href="#" onclick="openSpam119('' == 'true', true, 'Jnt6', '', 'IC6M', '7005533', '\uBBFC\uD558 \uC560\uAC00 \uC560\uAC19\uC9C0\uAC00\uC54A\uC544...'); return false;">신고</a>
-		                </div>
-		            </div>
-		            <script type="text/javascript" src="http://s1.daumcdn.net/cafecj/js/31/2009/_reply.js"></script>
-		            <script type="text/javascript" src="http://s1.daumcdn.net/cafecj/js/48/2009/memo_reply.js"></script>
-		            <script type="text/javascript" src="http://s1.daumcdn.net/cafecj/js/2/2009/dwr/engine-2.0.5.js"></script>
-		            <script type="text/javascript" src="http://s1.daumcdn.net/cafecj/js/11/2009/dwr/dwrstub-compressed.js"></script>
-		            <iframe src="about:blank" id="cmtinfo" width="0" height="0" frameborder="0">
-		            </iframe>
-		            <div id="commentArea-7005533" class="commentBox ">
-		                <div class="admin_boxT linebg">
-		                     &nbsp;
-		                </div>
-		                <div id="commentDiv-7005533" class="commentDiv bg_sub">
-		                    <div id="commentPagingDiv-7005533" class="commentPagingDiv">
-		                        <!-- 댓글 List -->
-		                        <div id="commentData-7005533">
-		                            <input type="hidden" name="PLAIN_REGDT" value="20130125001435">
-		                            <input type="hidden" name="CMTTYPE" value="member">
-		                            <input type="hidden" name="FOLDER_cmtTexticonyn" value="true">
-		                            <input type="hidden" name="IS_POLL_BOARD" value="">
-		                            <input type="hidden" name="POLL_URI" value="false">
-		                            <input type="hidden" name="POLL_active" value="">
-		                            <input type="hidden" name="IS_BBS_SEARCH_READ" value="false">
-		                            <input type="hidden" name="CONTENTVAL" value="0TOSTzzzzzzzzzzzzzzzzzzzzzzzzz">
-		                            <input type="hidden" name="DATAID" value="7005533">
-		                            <input type="hidden" name="COMMENT_FLOODED" value="false">
-		                            <input type="hidden" name="ESPAM" value=".M_gaj26K4ekyzQtCU88fI.iFtpYus-4Wo-8mJMg8yQ0">
-		                            <input type="hidden" name="CPAGE" value="0">
-		                            <input type="hidden" name="PAGE_COUNT" value="1">
-		                            <input type="hidden" name="F_CDEPTH" value="">
-		                            <input type="hidden" name="L_CDEPTH" value="">
-		                            <input type="hidden" name="N_CDEPTH" value="">
-		                            <input type="hidden" name="RECENT_MYFLDDATASEQ" value="0">
-		                            <input type="hidden" name="OPENED_SEQ" value="0">
-		                            <input type="hidden" name="HAS_PERMISSION" value="true">
-		                            <input type="hidden" name="IS_QABOARD" value="false">
-		                            <input type="hidden" name="IS_IMSI" value="false">
-		                            <input type="hidden" name="IS_NO_AUTH_SIMPLEID" value="false">
-		                            <input type="hidden" id="_cmt_count-7005533" value="0">
-		                            <input type="hidden" id="_cmt_guest_count-7005533" value="0">
-		                        </div>
-		                        <script type="text/javascript">//<![CDATA[
-		    var goFocusEl = function(){
-		    //  if(daum.$("qna-a-c-item-7005533")){
-		    //      Reply.activeCommentTemplate('12795');
-		    //  }
-		        var searchFocus = "${searchFocus}";
-		        var focusCmt = daum.$(searchFocus);
-		        if (focusCmt != null){
-		            var coords = daum.Element.getCoords(focusCmt);
-		            window.scrollTo(0, coords.top);
-		        }
-		    }
-		    daum.Event.addEvent(window,"load",goFocusEl);
-		//]]></script>
-		                        <!-- // 댓글 List -->
-		                    </div>
-		                    <div id="comment_box_bg-7005533">
-		                        <!-- 댓글 입력 Form -->
-		                        <div id="replyWrite-7005533" class="longtail_editor longtail_reply">
-		                            <div class="longtail_editor_layout">
-		                                <table>
-		                                <tbody>
-		                                <tr>
-		                                    <td class="longtail_comment inp">
-		                                        <div class="longtail_comment_wrap">
-		                                            <div class="preview_area">
-		                                                <img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" class="upload_viewer" width="35" height="35" alt="첨부 이미지">
-		                                                <a href="#" onclick="return false;" class="btn_delete">첨부 이미지 삭제</a>
-		                                            </div>
-		                                            <textarea class="inp scroll txt_sub" name="comment_view" rows="3" cols="56"></textarea>
-		                                        </div>
-		                                    </td>
-		                                    <td class="longtail_editor_btn">
-		                                        <a href="#" onclick="return false;" class="btn submit_content"><span class="btn_bg bg01"></span><span class="btn_txt bt01 b">등록</span></a>
-		                                        <a href="#" onclick="return false;" class="btn submit_content_sub"><span class="btn_bg bg05"></span><span class="btn_txt bt05 w02">등록</span></a>
-		                                        <a href="#" onclick="return false;" class="btn cancel_content"><span class="btn_bg bg05"></span><span class="btn_txt bt05 w02">취소</span></a>
-		                                    </td>
-		                                </tr>
-		                                <tr class="longtail_menu_row">
-		                                    <td>
-		                                        <div class="longtail_editor_menu">
-		                                            <ul class="menu_item_list" style="display: block;">
-		                                                <li class="menu_photo" style="display: block;"><object type="application/x-shockwave-flash" data="http://editor.daum.net/cafe_reply/2011100701/coca.swf" width="21" height="21" id="uploader_replyWrite-7005533" style="visibility: visible;"><param name="quality" value="high"><param name="menu" value="false"><param name="swliveconnect" value="true"><param name="allowScriptAccess" value="always"><param name="wmode" value="transparent"><param name="scale" value="noscale"><param name="salign" value="LT"><param name="flashvars" value="coca_service=CafeReplyCoca&amp;coca_ctx=replyWrite-7005533&amp;service=cafe&amp;sname=cafe&amp;sid=cafe&amp;single_selection=true&amp;coca_skin=http://i1.daumcdn.net/cafeimg/cf_img4/bg/edit09_01.gif&amp;coca_over_skin=http://i1.daumcdn.net/cafeimg/cf_img4/bg/edit09_02.gif&amp;coca_down_skin=http://i1.daumcdn.net/cafeimg/cf_img4/bg/edit09_03.gif"></object></li>
-		                                                <li class="menu_secret" style="display: block;"><a href="#" onclick="return false;" class="menu_item">비밀</a></li>
-		                                                <li class="menu_setting" style="display: block;"><a href="#" onclick="return false;" class="menu_item" id="item_setting_replyWrite-7005533">설정</a></li>
-		                                            </ul>
-		                                            <span class="bar2 fl" style="display: block;">|</span>
-		                                            <ul class="menu_item_list sns_share_items" style="display: block;">
-		                                                <li class="first_cmt_sns sns_not_connected"><input type="checkbox" id="allowTwitterShare" class="twitter" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowTwitterShare" class="twitter_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="트위터에 함께 쓰기"></label></li>
-		                                                <li class="sns_not_connected"><input type="checkbox" id="allowFaceBookShare" class="facebook" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowFaceBookShare" class="facebook_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="페이스북에 함께 쓰기"></label></li>
-		                                                <li class="sns_not_connected"><input type="checkbox" id="allowNateShare" class="nate" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowNateShare" class="nate_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="네이트에 함께 쓰기"></label></li>
-		                                                <li class="sns_not_connected"><input type="checkbox" id="allowMe2DayShare" class="me2day" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowMe2DayShare" class="me2day_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="미투데이에 함께 쓰기"></label></li>
-		                                                <li class=""><input type="checkbox" id="allowYozmShare" class="yozm" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowYozmShare" class="yozm_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="요즘에 함께 쓰기"></label></li>
-		                                                <li class="last sns_not_connected"><a class="txt_sub p11" href="http://blog.daum.net/cafe_notice/2055" target="_blank">SNS 내보내기란?<span class="arrow">▶</span></a></li>
-		                                            </ul>
-		                                            <span class="longtail_counter fr p11 ls0"><span class="text_counter txt_point b">50</span> / 300자</span>
-		                                        </div>
-		                                    </td>
-		                                    <td>
-		                                         &nbsp;
-		                                    </td>
-		                                </tr>
-		                                </tbody>
-		                                </table>
-		                            </div>
-		                            <script type="text/javascript">
-		    CAFEAPP.ui.sns = {
-		        snsPrefix : "%EB%AF%BC%ED%95%98+%EC%95%A0%EA%B0%80+%EC%95%A0%EA%B0%99%EC%A7%80%EA%B0%80%EC%95%8A%EC%95%84...",
-		        snsLink : "http://cafe.daum.net/WorldcupLove/IC6M/7005533?docid=Jnt6IC6M700553320130125001435",
-		        snsMetatype : "",
-		        snsMetakey : "",
-		        snsImagePath : "",
-		        snsCaption : "cafe.daum.net&description=%EA%B7%80%EC%97%AC%EC%9A%B4%EB%8D%B0+%EB%AD%94%EA%B0%80+%EC%95%88%ED%83%80%EA%B9%8C%EC%9B%80..%EA%B9%80%EC%9D%91%EC%88%98%EB%94%B8%EC%9D%80+%EA%B7%B8%EB%9F%B0%EB%8A%90%EB%82%8C%EC%9D%B4+%EC%95%88%EB%93%9C%EB%8A%94%EB%8D%B0+%EB%AF%BC%ED%95%98%EB%A7%8C%EB%B3%B4%EB%A9%B4+%EC%A2%80...+%EB%84%88%EB%AC%B4%E3%85%A0%E3%85%A0%EC%95%84%EB%B9%A0%EC%96%B4%EB%94%94%EA%B0%80%EC%97%90+%EB%82%98%EC%98%A4%EB%8A%94%EC%95%A0%EB%93%A4%EC%9D%B4+%EB%94%B1+%EA%B7%B8%EB%82%98%EC%9D%B4%EB%95%8C+%EC%95%A0%EB%93%A4%EC%9D%B4%EB%9D%BC+%EC%9E%AC%EB%B0%8C%EB%8A%94%EA%B1%B4%EB%8D%B0..."   
-		    }
-		    CAFEAPP.ui.sns.allows = [
-		                "yozm"
-		                        ];
-		    sendSNSUtil.applyAllows();
-		                                        </script>
-		                        </div>
-		                        <!-- // 댓글 입력 Form -->
-		                    </div>
-		                    <!-- search box start -->
-		                    <div class="search_box_elem cmt_search_box_sns ">
-		                        <div class="cmt_center_wrap">
-		                            <select name="item" class="inp fl">
-		                                <option value="cmtContents">댓글내용</option>
-		                                <option value="cmtNicknameNgram">댓글작성자</option>
-		                            </select>
-		                            <div class="suggest">
-		                                <input type="text" name="query" value="" class="query inp fl" onkeydown="Reply.checkKeyEvent(event, '7005533');" autocomplete="off">
-		                                <button type="button">서제스트 버튼</button>
-		                            </div>
-		                            <a href="#" class="btn_search" onclick="Reply.search(this, '7005533'); return false;"><img src="http://i1.daumcdn.net/cafeimg/cf_img4/img/btn_search.gif" class="fl" width="37" height="21" alt="검색"></a>
-		                        </div>
-		                    </div>
-		                    <!-- search box end -->
-		                </div>
-		                <!-- end commentDiv -->
-		                <div id="_cmt_reply_editor-7005533" class="longtail_editor longtail_reply" style="display:none;">
-		                    <div class="longtail_editor_layout">
-		                        <table>
-		                        <tbody>
-		                        <tr>
-		                            <td class="longtail_comment inp">
-		                                <div class="longtail_comment_wrap">
-		                                    <div class="preview_area">
-		                                        <img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" class="upload_viewer" width="35" height="35" alt="첨부 이미지">
-		                                        <a href="#" onclick="return false;" class="btn_delete">첨부 이미지 삭제</a>
-		                                    </div>
-		                                    <textarea class="inp scroll txt_sub" name="comment_view" rows="3" cols="56"></textarea>
-		                                </div>
-		                            </td>
-		                            <td class="longtail_editor_btn">
-		                                <a href="#" onclick="return false;" class="btn submit_content"><span class="btn_bg bg01"></span><span class="btn_txt bt01 b">등록</span></a>
-		                                <a href="#" onclick="return false;" class="btn submit_content_sub"><span class="btn_bg bg05"></span><span class="btn_txt bt05 w02">등록</span></a>
-		                                <a href="#" onclick="return false;" class="btn cancel_content"><span class="btn_bg bg05"></span><span class="btn_txt bt05 w02">취소</span></a>
-		                            </td>
-		                        </tr>
-		                        <tr class="longtail_menu_row">
-		                            <td>
-		                                <div class="longtail_editor_menu">
-		                                    <ul class="menu_item_list" style="display: block;">
-		                                        <li class="menu_photo" style="display: block;"><a class="menu_item coca_uploader">사진 올리기</a></li>
-		                                        <li class="menu_secret" style="display: block;"><a href="#" onclick="return false;" class="menu_item">비밀</a></li>
-		                                        <li class="menu_setting" style="display: block;"><a href="#" onclick="return false;" class="menu_item" id="item_setting__cmt_reply_editor-7005533">설정</a></li>
-		                                    </ul>
-		                                    <span class="bar2 fl" style="display: block;">|</span>
-		                                    <ul class="menu_item_list sns_share_items" style="display: block;">
-		                                        <li class="first_cmt_sns sns_not_connected"><input type="checkbox" id="allowTwitterShare" class="twitter" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowTwitterShare" class="twitter_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="트위터에 함께 쓰기"></label></li>
-		                                        <li class="sns_not_connected"><input type="checkbox" id="allowFaceBookShare" class="facebook" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowFaceBookShare" class="facebook_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="페이스북에 함께 쓰기"></label></li>
-		                                        <li class="sns_not_connected"><input type="checkbox" id="allowNateShare" class="nate" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowNateShare" class="nate_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="네이트에 함께 쓰기"></label></li>
-		                                        <li class="sns_not_connected"><input type="checkbox" id="allowMe2DayShare" class="me2day" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowMe2DayShare" class="me2day_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="미투데이에 함께 쓰기"></label></li>
-		                                        <li class=""><input type="checkbox" id="allowYozmShare" class="yozm" name="snsServiceNames" onclick="onclickSnsShareOnReply(event);"><label for="allowYozmShare" class="yozm_label"><img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="13" height="13" alt="요즘에 함께 쓰기"></label></li>
-		                                        <li class="last sns_not_connected"><a class="txt_sub p11" href="http://blog.daum.net/cafe_notice/2055" target="_blank">SNS 내보내기란?<span class="arrow">▶</span></a></li>
-		                                    </ul>
-		                                    <span class="longtail_counter fr p11 ls0"><span class="text_counter txt_point b">50</span> / 300자</span>
-		                                </div>
-		                            </td>
-		                            <td>
-		                                 &nbsp;
-		                            </td>
-		                        </tr>
-		                        </tbody>
-		                        </table>
-		                    </div>
-		                    <script type="text/javascript">
-		    CAFEAPP.ui.sns = {
-		        snsPrefix : "%EB%AF%BC%ED%95%98+%EC%95%A0%EA%B0%80+%EC%95%A0%EA%B0%99%EC%A7%80%EA%B0%80%EC%95%8A%EC%95%84...",
-		        snsLink : "http://cafe.daum.net/WorldcupLove/IC6M/7005533?docid=Jnt6IC6M700553320130125001435",
-		        snsMetatype : "",
-		        snsMetakey : "",
-		        snsImagePath : "",
-		        snsCaption : "cafe.daum.net&description=%EA%B7%80%EC%97%AC%EC%9A%B4%EB%8D%B0+%EB%AD%94%EA%B0%80+%EC%95%88%ED%83%80%EA%B9%8C%EC%9B%80..%EA%B9%80%EC%9D%91%EC%88%98%EB%94%B8%EC%9D%80+%EA%B7%B8%EB%9F%B0%EB%8A%90%EB%82%8C%EC%9D%B4+%EC%95%88%EB%93%9C%EB%8A%94%EB%8D%B0+%EB%AF%BC%ED%95%98%EB%A7%8C%EB%B3%B4%EB%A9%B4+%EC%A2%80...+%EB%84%88%EB%AC%B4%E3%85%A0%E3%85%A0%EC%95%84%EB%B9%A0%EC%96%B4%EB%94%94%EA%B0%80%EC%97%90+%EB%82%98%EC%98%A4%EB%8A%94%EC%95%A0%EB%93%A4%EC%9D%B4+%EB%94%B1+%EA%B7%B8%EB%82%98%EC%9D%B4%EB%95%8C+%EC%95%A0%EB%93%A4%EC%9D%B4%EB%9D%BC+%EC%9E%AC%EB%B0%8C%EB%8A%94%EA%B1%B4%EB%8D%B0..."   
-		    }
-		    CAFEAPP.ui.sns.allows = [
-		                "yozm"
-		                        ];
-		    sendSNSUtil.applyAllows();
-		                                </script>
-		                </div>
-		                <div id="memoProfileLayer" class="profile_img_layer" style="display: none;">
-		                    <img src="http://i1.daumcdn.net/cafeimg/cf_img2/img_blank2.gif" width="150" height="150" alt="프로필 이미지">
-		                </div>
-		                <script type="text/javascript">//<![CDATA[
-		    if (typeof Memo != "undefined" && typeof Memo.Layer != "undefined") {
-		        Memo.Layer.init();
-		    }
-		//]]></script>
-		                <script type="text/javascript">//<![CDATA[
-		        Reply.init("7005533");
-		    //]]></script>
-		                <script type="text/javascript" src="http://s1.daumcdn.net/cafecj/js/4/2009/suggest.min.js"></script>
-		                <script type="text/javascript">
-		        Suggest.init();
-		    </script>
-		            </div>
-		            <!-- end commentBox -->
-		            <!-- 하단 페이징 -->
-		            <div class="list_btn_area lineT">
-		                <a href="" class="btn"><span class="btn_bg bg03"></span><span class="btn_txt bt03 w07 b"><span class="btn_icon_write">글쓰기</span></span></a>
-		                <a href="javascript:;" class="btn" onclick="check_reply('0TOSTzzzzzzzzzzzzzzzzzzzzzzzzz'); return false;"><span class="btn_bg bt03"></span><span class="btn_txt bt03 w03">답글</span></a>
-		                <span class="list_paging">
-		                <a href="bbs_list?grpid=Jnt6&amp;mgrpid=&amp;fldid=IC6M&amp;listnum=20#bbs_list_title">최신목록</a>
-		                <span class="bar2">|</span>
-		                <a href="">목록</a>
-		                <span class="bar2">|</span>
-		                <span class="arrow">▲</span><a href="">윗글</a>
-		                <span class="bar2">|</span>
-		                <span class="arrow">▼</span><a href="">아랫글</a>
-		                </span>
-		            </div>
-		            <!-- end list_btn_area -->
-		            <div class="cl">
-		                 &nbsp;
-		            </div>
-		            <!-- 새롭게 추가된 윗글/아랫글 -->
-		            <div class="prenext_paging">
-		                <ul>
-		                    <li>
-		                    <span class="arrow">▲</span><a href="">윗글</a>&nbsp; &nbsp; <span class="bar2">|</span>&nbsp;<a href="">다들 뜨끔하십니까?ㅋㅋ</a><span class="txt_sub p11 ls0">2013.01.25</span>
-		                    </li>
-		                    <li>
-		                    <span class="arrow">▼</span><a href="">아랫글</a>
-		                    <span class="bar2">|</span>&nbsp;<a href="">님들 감기조심하세여 제발ㅠㅠ</a><span class="txt_sub p11 ls0">2013.01.25</span>
-		                    </li>
-		                </ul>
-		            </div>
-		        </form>
-		        <div class="goTop">
-		            <span class="arrow">▲</span><a href="#" title="탑으로 가기">top</a>
-		        </div>
-		        <form name="filefilterForm" action="" method="get">
-		            <input type="hidden" name="grpid" value="">
-		            <input type="hidden" name="kind" value="">
-		            <input type="hidden" name="url" value="">
-		            <input type="hidden" name="filekey" value="">
-		            <input type="hidden" name="realname" value="">
-		            <input type="hidden" name="v3param" value="">
-		        </form>
-		        <form name="pdsV3CheckForm" action="" method="post">
-		        </form>
-		        <!-- content end -->
-		    </td>
-		    <td class="rb" nowrap="">
-		         &nbsp;
-		    </td>
-		</tr>
-		<tr>
-		    <td class="blb" nowrap="">
-		         &nbsp;
-		    </td>
-		    <td class="bcb" nowrap="">
-		    </td>
-		    <td class="brb" nowrap="">
-		         &nbsp;
-		    </td>
-		</tr>
-		</tbody>
-		</table>
-        <!-- end roundTable -->
-    </div>
-    <!-- end primaryContent -->
-</div>
-<!-- end content -->
-<script type="text/javascript">
-//<![CDATA[
-    MyCafeController.init();
-    MyCafeController.showAlimi();
-    MyRecentListViewController.init();
-
-    function toggleHelpLayer(type, layerID){
-        var layer = $E(layerID);
-        if(layer != null){          
-            if(type == 'over') layer.show();
-            else if(type == 'out') layer.hide();
-        }
-    } 
-//]]>
-</script>
-
-            
-<br style="clear: both;">
-<jsp:directive.include file="../include/footer.jspf"/>
-    
-</div>
-
-
-<iframe name="proxyIframe" src="<%=request.getContextPath()%>/common/daum/cafe/suggestProxy.htm" style="display: none;" title="Suggest Proxy Frame"></iframe>
-
-<div id="layerBreakingNewsSearch"></div>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/editor/css/editor.css" type="text/css" charset="utf-8"/>
+<script src="<%=request.getContextPath()%>/resources/editor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>            
+                    <div class="dashboard" style="width: 222px; float:left;">
+                        <div class="module mini-profile">
+                            <div class="flex-module profile-summary js-profile-summary">
+                                <a href="/mouse208" class="account-summary account-summary-small js-nav" data-nav="profile">
+                                <div class="content">
+                                    <div class="account-group js-mini-current-user" data-user-id="129483340" data-screen-name="mouse208">
+                                        <img class="avatar size32" src="https://si0.twimg.com/profile_/resources/editor/images/1157074264/38_4_normal.jpg" alt="최중섭" data-user-id="129483340">
+                                        <b class="fullname">최중섭</b>
+                                        <small class="metadata">
+                                        내 프로필 페이지 보기 </small>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="module">
+                            <ul class="js-nav-links">
+                                <li class="active"><a class="list-link js-nav" href="/user/settings/account" data-nav="account">계정 <i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link js-nav" href="/user/settings/password" data-nav="password">비밀번호<i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link js-nav" href="/user/settings/devices" data-nav="devices">모바일 <i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link js-nav" href="/user/settings/notifications" data-nav="notifications">이메일 알림 <i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link js-nav" href="/user/settings/profile" data-nav="profile">프로필 <i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link js-nav" href="/user/settings/design" data-nav="design">디자인 <i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link js-nav" href="/user/settings/favourites" data-nav="connections">좋아하는 클럽<i class="chev-right"></i></a></li>
+                                <li class=""><a class="list-link" href="/user/settings/widgets" data-nav="widgets">위젯 <i class="chev-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-main" style="width: 761px;">
+                        <div class="content-header">
+                            <div class="header-inner">
+                                <h2>${getArticle.subject}</h2>      
+                            </div>
+                        </div>
+                        <div class="content-inner no-stream-and">                       
+							<form name="tx_editor_form" id="tx_editor_form" action="/news/write" method="post" accept-charset="utf-8">						
+	                            <div id="write_title" class="line_sub" style="background-color: rgb(255, 255, 255);">                               
+	                                <p class="title_inp">
+	                                    ${getArticle.subject}	                                    
+	                                </p>                                
+	                                <span class="title_cnt" style="display:none;"><span id="textlimit" class="point">0</span> / 75자</span>
+	                            </div>
+	                            <div style="height: 5px;"></div> 							
+							    <!-- 에디터 컨테이너 시작 -->
+							    <div>
+							    ${getArticle.content}
+							    </div>							    
+							    <!-- 에디터 컨테이너 끝 -->
+							</form>
+                        </div>
+						<div class="inline-reply-tweetbox swift">
+						    <form class="tweet-form condensed" method="post" target="tweet-post-iframe" action="//upload.twitter.com/i/tweet/create_with_media.iframe" enctype="multipart/form-data">
+						        <input type="hidden" name="post_authenticity_token" class="auth-token" value="">
+						        <input type="hidden" name="iframe_callback" class="iframe-callback" value="">
+						        <input type="hidden" name="in_reply_to_status_id" class="in-reply-to-status-id" value="">
+						        <input type="hidden" name="impression_id" class="impression-id" value="">
+						        <input type="hidden" name="earned" class="earned" value="">
+						        <img class="inline-reply-user-image avatar size32" src="https://si0.twimg.com/profile_images/3479363933/e4d7bf7a02cc55ced4dc776a0adeec35_normal.png" alt="최중섭">
+						        <span class="inline-reply-caret">
+						        <span class="caret-inner"></span>
+						        </span>
+						        <div class="tweet-content">
+						            <i class="add-photo-icon hidden"></i>
+						            <span class="tweet-drag-help tweet-drag-photo-here hidden">여기에 사진을 끌어오세요</span>
+						            <span class="tweet-drag-help tweet-or-drag-photo-here hidden">점선 안으로 사진파일을 끌어오셔도 됩니다</span>
+						            <label class="visuallyhidden" for="tweet-box-reply-to-363194029590056960" id="tweet-box-template-label">트윗 문구</label>
+						            <div aria-labelledby="tweet-box-template-label" id="tweet-box-template" class="tweet-box rich-editor notie" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" dir="ltr">
+						                <div>
+						                    <a class="twitter-atreply pretty-link" href="/computers_bot"><s>@</s>computers_bot</a> &nbsp;님에게 답장
+						                </div>
+						            </div>
+						            <div class="rich-normalizer">
+						                <div>
+						                    <a class="twitter-atreply pretty-link" href="/computers_bot"><s>@</s>computers_bot</a> &nbsp;님에게 답장
+						                </div>
+						            </div>
+						            <div class="dropdown-menu typeahead" style="display: none;">
+						                <div class="dropdown-caret">
+						                    <div class="caret-outer">
+						                    </div>
+						                    <div class="caret-inner">
+						                    </div>
+						                </div>
+						                <div class="dropdown-inner js-typeahead-results">
+						                    <ul class="typeahead-items typeahead-accounts js-typeahead-accounts block0 has-results" style="display: block;">
+						                        <li data-user-id="620933199" data-user-screenname="computers_bot" data-remote="true" data-score="" class="typeahead-item typeahead-account-item js-selectable">
+						                        <a class="js-nav" data-query-source="typeahead_click" data-search-query="620933199" data-ds="account" href="/computers_bot">
+						                        <img class="avatar size24" src="//si0.twimg.com/profile_images/3745479030/532c15d5cf909e05b4fec5044bc780b0_mini.jpeg">
+						                        <div class="typeahead-user-item-info">
+						                            <span class="fullname">컴퓨터 SW 봇</span>
+						                            <span class="js-verified hidden"><span class="icon verified"><span class="visuallyhidden">인증된 계정</span></span></span>
+						                            <span class="username"><s>@</s><b>computers_bot</b></span>
+						                        </div>
+						                        </a>
+						                        </li>
+						                        <li class="js-selectable typeahead-accounts-shortcut js-shortcut" style="display: none;"><a class="js-nav" href="/search/users?q=%40computers_bot" data-search-query="@computers_bot" data-query-source="typeahead_click" data-shortcut="true" data-ds="account_search"><strong>@computers_bot</strong>에 대한 모든 인물 검색</a></li>
+						                    </ul>
+						                    <ul class="typeahead-items typeahead-topics block1" style="display: none;">
+						                    </ul>
+						                </div>
+						            </div>
+						            <textarea class="tweet-box-shadow" name="status" id="tweet-box-reply-to-363194029590056960"></textarea>
+						            <div class="thumbnail-container">
+						                <div class="preview">
+						                    <a class="dismiss js-dismiss" href="#" tabindex="-1"><i class="dismiss-white"></i></a>
+						                    <span class="filename"></span>
+						                </div>
+						                <div class="preview-message">
+						                    이미지는 링크로 표시됩니다
+						                </div>
+						            </div>
+						        </div>
+						        <div class="toolbar js-toolbar" role="toolbar">
+						            <div class="tweet-box-extras">
+						                <div class="photo-selector">
+						                    <button aria-hidden="true" class="btn" type="button" tabindex="-1">
+						                    <i class="tweet-camera"></i>
+						                    </button>
+						                    <div class="image-selector">
+						                        <input type="hidden" name="media_data[]" class="file-data" value="">
+						                        <label for="tweet-box-reply-to-363194029590056960">
+						                        <span class="visuallyhidden">사진 추가</span>
+						                        <input type="file" name="media[]" class="file-input" tabindex="-1">
+						                        </label>
+						                        <div class="swf-container">
+						                        </div>
+						                    </div>
+						                </div>
+						                <div class="geo-picker">
+						                    <button class="btn geo-picker-btn" type="button" tabindex="-1" title="위치 서비스를 사용할 수 없습니다">
+						                    <i class="tweet-geo"><span class="visuallyhidden">위치 추가</span></i><span class="caret"></span>
+						                    </button>
+						                    <span class="dropdown-container"></span>
+						                    <span class="geo-status">위치 서비스를 사용할 수 없습니다</span>
+						                    <input type="hidden" name="place_id" value="">
+						                </div>
+						            </div>
+						            <div class="tweet-button">
+						                <span class="spinner"></span>
+						                <span class="tweet-counter">118</span>
+						                <button class="btn primary-btn tweet-action" type="button">트윗하기</button>
+						            </div>
+						        </div>
+						    </form>
+						</div>                        
+                        <div class="content-footer">
+                            <div class="footer-inner">
+								<ol class="expanded-conversation expansion-container js-expansion-container js-navigable-stream" style="height: auto;">
+								    <li class="">
+								    <div class="simple-tweet tweet js-stream-tweet js-actionable-tweet js-profile-popup-actionable descendant " data-feedback-key="stream_status_362965890880372737" data-tweet-id="362965890880372737" data-item-id="362965890880372737" data-screen-name="Shiroi_FILKB" data-name="FILKB.QS Type. Iznal" data-user-id="620861736" data-has-parent-tweet="true" data-expanded-footer="&lt;div class=&quot;js-tweet-details-fixer tweet-details-fixer&quot;&gt; &lt;div class=&quot;js-tweet-media-container &quot;&gt;&lt;/div&gt; &lt;div class=&quot;entities-media-container &quot; style=&quot;min-height:0px&quot;&gt; &lt;/div&gt; &lt;div class=&quot;js-machine-translated-tweet-container&quot;&gt;&lt;/div&gt; &lt;div class=&quot;js-tweet-stats-container tweet-stats-container &quot;&gt; &lt;/div&gt; &lt;div class=&quot;client-and-actions&quot;&gt; &lt;span class=&quot;metadata&quot;&gt; &lt;span title=&quot;13년 8월 2일 - 12:59 AM&quot;&gt;13년 8월 2일 - 12:59 AM&lt;/span&gt; &amp;middot; &lt;a class=&quot;permalink-link js-permalink js-nav&quot; href=&quot;/Shiroi_FILKB/status/362965890880372737&quot; tabindex=&quot;-1&quot;&gt;자세히&lt;/a&gt; &lt;/span&gt; &lt;/div&gt; &lt;/div&gt; " data-mentions="computers_bot" data-component-context="replies">
+								        <i class="dogear"></i>
+								        <div class="content">
+								            <div class="stream-item-header">
+								                <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav" href="/Shiroi_FILKB" data-user-id="620861736">
+								                <img class="avatar js-action-profile-avatar" src="https://si0.twimg.com/profile_images/378800000225549664/4a9af72837568e10b67994cc5ef61cf3_normal.jpeg" alt="">
+								                <strong class="fullname js-action-profile-name show-popup-with-id">FILKB.QS Type. Iznal</strong>
+								                <span>‏</span><span class="username js-action-profile-name"><s>@</s><b>Shiroi_FILKB</b></span>
+								                </a>
+								                <small class="time">
+								                <a href="/Shiroi_FILKB/status/362965890880372737" class="tweet-timestamp js-permalink js-nav" title="13년 8월 2일 - 12:59 AM"><span class="_timestamp js-short-timestamp js-relative-timestamp" data-time="1375372786" data-long-form="true">14시간</span></a>
+								                </small>
+								            </div>
+								            <p class="js-tweet-text tweet-text">
+								                <a href="/computers_bot" class="twitter-atreply pretty-link" dir="ltr"><s>@</s><b>computers_bot</b></a> 전형적인 Backtracking문제이군요.. ㅋㅋ 위에서부터 각각 2, 4 ,1, 3번쨰 칸에 놓으면 되지요 ㅎ
+								            </p>
+								            <div class="stream-item-footer">
+								                <a class="details with-icn js-details" href="/Shiroi_FILKB/status/362965890880372737">
+								                <span class="details-icon js-icon-container">
+								                </span>
+								                <b>
+								                <span class="simple-details-link">자세히</span>
+								                <span class="expand-stream-item js-view-details">
+								                <span class="expand-action-wrapper">
+								                펼치기 </span>
+								                </span>
+								                <span class="collapse-stream-item js-hide-details">
+								                접기 </span>
+								                </b>
+								                </a>
+								                <ul class="tweet-actions js-actions">
+								                    <li class="action-reply-container">
+								                    <a role="button" class="with-icn js-action-reply" data-modal="tweet-reply" href="#">
+								                    <span class="icon sm-reply"></span>
+								                    <b>답글</b>
+								                    </a>
+								                    </li>
+								                    <li class="action-rt-container js-toggle-state js-toggle-rt">
+								                    <a role="button" class="with-icn retweet" data-modal="tweet-retweet" href="#">
+								                    <span class="icon sm-rt"></span>
+								                    <b>리트윗</b>
+								                    </li>
+								                    <li class="more-tweet-actions">
+								                    <div class="action-more-container">
+								                        <div class="dropdown">
+								                            <button type="button" class="btn-link with-icn dropdown-toggle">
+								                            <i class="sm-more"></i>
+								                            <b>더 보기</b>
+								                            </button>
+								                            <ul class="dropdown-menu">
+								                                <li class="dropdown-caret">
+								                                <span class="caret-outer"></span>
+								                                <span class="caret-inner"></span>
+								                                </li>
+								                                <li class="share-via-email">
+								                                <a class="js-share-via-email" href="#" data-nav="share_tweet">이메일로 공유하기</a>
+								                                </li>
+								                                <li class="embed-link">
+								                                <a class="js-embed-tweet" href="#" data-nav="embed_tweet">트윗 담아가기</a>
+								                                </li>
+								                            </ul>
+								                        </div>
+								                    </div>
+								                    </li>
+								                </ul>
+								            </div>
+								            <div class="expanded-content js-tweet-details-dropdown">
+								            </div>
+								        </div>
+								    </div>
+								    </li>
+								</ol>      
+                            </div>
+                        </div>                        
+                        <div class="content-footer">
+                            <div class="footer-inner">
+                                <span><a class="btn primary-btn tweet-action" type="button" href="/news/${getArticle.num}/form">수정</a></span>
+                                <span><a class="btn primary-btn tweet-action" type="button" href="/news/form">삭제</a></span>      
+                            </div>
+                        </div>                        
+                    </div>

@@ -76,7 +76,7 @@ public class NewsController {
 	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public String update(News news) {
 		newsService.updateNews(news);
-		return "redirect:/news/"+news.getNum();
+		return "redirect:/news";
 	}		
 	
 	@RequestMapping("{id}")

@@ -161,14 +161,14 @@
 						<div class="content-custom js-timeline-from-cache" id="timeline">
 						    <div class="content-header">
 						        <div class="header-inner">
-						            <h3 class="js-timeline-title">최신뉴스</h3>
+						            <h3 class="js-timeline-title">최신글</h3>
 						        </div>
 						    </div>
 						    <div class="stream-container " data-max-id="302023254317608959" data-since-id="304214130078916608">
 						        <div class="stream home-stream">
                                     <c:set var="newsList" value="${getBoardList}" />
 						            <ol class="stream-items" id="stream-items-id" data-item-count="${fn:length(newsList)}">
-                                        <c:forEach var="news" items="${newsList}" begin="0" end="3">
+                                        <c:forEach var="bbs" items="${newsList}" begin="0" end="3">
 						                <li class="js-stream-item stream-item stream-item expanding-stream-item" data-item-id="304775453590294528" id="stream-item-tweet-304775453590294528" data-item-type="tweet">
 							                <div class="expansion-container js-expansion-container" style="height: auto;">
 							                    <div class="tweet original-tweet js-stream-tweet js-actionable-tweet js-profile-popup-actionable js-original-tweet with-social-proof">
@@ -177,9 +177,9 @@
 							                                <small class="time">
 							                                <a href="" class="tweet-timestamp js-permalink js-nav" title="오전 11:11 - 2013년 2월 22일"><span class="_timestamp js-short-timestamp js-relative-timestamp" data-time="1361499105" data-long-form="true">2시간</span></a>
 							                                </small>
-							                                <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav" href="#" data-user-id="791556422">
+							                                <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav" href="/bbs/${bbs.num}" data-user-id="791556422">
 							                                <img class="avatar js-action-profile-avatar" src="" alt="애니팡 for Kakao">
-							                                <strong class="fullname js-action-profile-name show-popup-with-id">${news.subject}</strong>
+							                                <strong class="fullname js-action-profile-name show-popup-with-id">${bbs.subject}</strong>
 							                                <span>‏</span>
 							                                </a>
 							                            </div>

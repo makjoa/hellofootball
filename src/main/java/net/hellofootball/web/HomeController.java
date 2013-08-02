@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.service.article.ArticleService;
 import net.hellofootball.service.club.ClubService;
+import net.hellofootball.service.news.NewsService;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class HomeController {
 	ArticleService articleService;
 	@Autowired
 	ClubService clubService;
+	@Autowired
+	NewsService newsService;
 
 	
 	@RequestMapping("/")
@@ -36,6 +39,7 @@ public class HomeController {
 		
 		model.addAttribute("loginCommand", new LoginCommand());
 		model.addAttribute("getBoardList", articleService.getArticleList());
+		model.addAttribute("getNewsList", newsService.getNewsList());
 		model.addAttribute("getBestClubList", clubService.getBestClubList());
 		return "index";
 	}

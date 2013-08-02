@@ -65,7 +65,7 @@ public class ArticleDaoImpl extends SqlSessionDaoSupport implements ArticleDao {
 	
 	public int insertArticle(Article article) {
 
-		int b = getSqlSession().insert("insertArticle", article);
+		int b = getSqlSession().insert("article.insertArticle", article);
 		return b;
 	}
 	

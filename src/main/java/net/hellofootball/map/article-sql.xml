@@ -62,15 +62,15 @@
             , comment, comment_reply, cat_name, subject
             , content , link1, link2, link1_hit
             , link2_hit, trackback, hit, good
-            , nogood, mb_id, password, name
-            , email, homepage, datetime, last, ip)
+            , nogood, mb_id, name
+            , homepage, datetime, last, ip)
         values (
               #{num}, ' ', 0, 0
             , 0, ' ', #{cat_name}, #{subject}
             , #{content}, ' ', ' ', 0
             , 0, ' ', 0, 0
-            , 0, #{mb_id}, #{password}, #{name} 
-            , #{email}, ' ', NOW(), ' ', ' ')
+            , 0, #{mb_id}, #{name} 
+            , ' ', NOW(), ' ', ' ')
     </insert>
     
     <!-- 게시물 수정 -->
