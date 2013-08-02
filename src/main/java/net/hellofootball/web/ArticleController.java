@@ -135,11 +135,9 @@ public class ArticleController {
 		}
 		articleList = articleService.getArticleList(startArticleNum, showArticleLimit, type, keyword);		
 		System.out.println("startArticleNum" + startArticleNum + "\nendArticleNum" + endArticleNum + "\nshowArticleLimit"+ showArticleLimit + "\nshowPageLimit" +showPageLimit);
-		//StringBuffer pageHtml =  pageUtil.getPageHtml(currentPage, totalNum, showArticleLimit, showPageLimit, type, keyword);
-		//paging = getPagingList(currentPage, totalNum, showArticleLimit, showPageLimit);
 
 		mav.addObject("getArticleList", articleList);
-		//mav.addObject("pageHtml", pageHtml);
+
 		mav.addObject("pagingList", paging);
 		mav.setViewName("bbs/view");
 		
