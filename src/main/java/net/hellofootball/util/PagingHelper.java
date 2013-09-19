@@ -1,5 +1,7 @@
 package net.hellofootball.util;
 
+import net.hellofootball.page.model.Paging;
+
 public class PagingHelper {
 	
 	public Paging getPagingList(int nCurrentPage,int nTotalRecordSize,int nRecordSize, int nBlockSize) {

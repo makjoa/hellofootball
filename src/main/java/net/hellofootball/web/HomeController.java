@@ -34,9 +34,7 @@ public class HomeController {
 		System.out.println(cookieValue);
 		String cValue = cookieValue;
 		Cookie[] cookies = request.getCookies();
-		
-		System.out.println("COOKIE NAME : " + cValue);
-		
+
 		model.addAttribute("loginCommand", new LoginCommand());
 		model.addAttribute("getBoardList", articleService.getArticleList());
 		model.addAttribute("getNewsList", newsService.getNewsList());

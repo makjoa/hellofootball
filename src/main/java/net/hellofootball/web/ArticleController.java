@@ -55,13 +55,13 @@ public class ArticleController {
 	PagingUtil pagingUtil;
 
 	@RequestMapping(value = { "/form" } , method = RequestMethod.GET)
-	public String createForm(Model model){	
+	public String createForm(Model model){
 		model.addAttribute("Article", new Article());
 		return "bbs/form";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(Article article){		
+	public String create(Article article){
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		insertCount++;

@@ -67,8 +67,7 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+		getSqlSession().insert("addUser", user);
 	}
 
 	@Override

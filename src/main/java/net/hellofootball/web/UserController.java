@@ -126,10 +126,10 @@ public class UserController {
 		} else {			
 			User user = userService.loginCheck(loginCommand);
 			if(null == user) {
-				return "/user/login";
+				return "user/login";
 			} else {
 				System.out.println(loginCommand.getRemember_login());
-				if(loginCommand.getRemember_login().equals("1")) {
+				if(loginCommand.getRemember_login() != null && loginCommand.getRemember_login().equals("1")) {
 					CookieGenerator cookieGen = new CookieGenerator();
 					
 					cookieGen.setCookieName(COOKIE_NAME);
