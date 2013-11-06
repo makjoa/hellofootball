@@ -7,12 +7,12 @@ import net.hellofootball.dao.news.NewsDao;
 import net.hellofootball.domain.news.News;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service 
-public class NewsServiceImpl extends SqlSessionDaoSupport implements NewsService {
+public class NewsServiceImpl extends EgovAbstractMapper implements NewsService {
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	@Autowired

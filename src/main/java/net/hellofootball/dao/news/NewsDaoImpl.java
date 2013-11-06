@@ -7,11 +7,11 @@ import net.hellofootball.domain.news.News;
 import net.hellofootball.domain.user.User;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NewsDaoImpl extends SqlSessionDaoSupport implements NewsDao{
+public class NewsDaoImpl extends EgovAbstractMapper implements NewsDao{
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	@Override

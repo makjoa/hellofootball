@@ -96,7 +96,7 @@ mGene = {
 				.attr("href", "#").appendTo($li);				
 				
 				$img.addClass("avatar size24")
-				.attr("src", "http://localhost:8080/resources/images/premiership/normal/"+unique_id+".png").appendTo($a);
+				.attr("src", "/resources/images/premiership/normal/"+unique_id+".png").appendTo($a);
 
 				$span1.addClass("fullname")
 				.text(name).appendTo($a);
@@ -114,7 +114,7 @@ mGene = {
 			
 				uiData += '<li data-no="'+no+'" data-player-screenname="'+name+'" class="typeahead-item" id="players">';
 				uiData += '<a class="js-nav" data-query-source="typeahead_click" data-search-query="club-'+no+'"  href="#">';
-				uiData += '<img width="24" height="24" class="avatar size24" src="http://localhost:8080/resources/images/premiership/normal/'+unique_id+'.png">';
+				uiData += '<img width="24" height="24" class="avatar size24" src="/resources/images/premiership/normal/'+unique_id+'.png">';
 				uiData += '<span class="fullname">'+name+'</span>';					      
 				uiData += '<span class="js-verified hidden"><span class="icon verified"><span class="visuallyhidden">인증된 계정</span></span></span>';						        	
 				uiData += '<button class="btn flex-table-btn js-submit" type="button" id="addClub">추가하기</button>';
@@ -127,7 +127,7 @@ mGene = {
 				addData += '<div class="content">';
 				addData += '<div class="stream-item-header">';
 				addData += '<a class="account-group js-user-profile-link" href="">';
-				addData += '<img class="avatar js-action-profile-avatar size73 js-tooltip" src="http://localhost:8080/resources/images/premiership/normal/'+unique_id+'.png" alt="">';
+				addData += '<img class="avatar js-action-profile-avatar size73 js-tooltip" src="/resources/images/premiership/normal/'+unique_id+'.png" alt="">';
 				addData += '<strong class="fullname js-action-profile-name">'+name+'</strong>';
 				addData += '<span>&rlm;</span>';
 				addData += '<span class="username js-action-profile-name">'+status+'</span>';
@@ -170,7 +170,7 @@ mGene = {
 
 		$.ajax({
 			type        : "post",            
-			url           : "http://localhost:8080/"+s.url,
+			url           : "/"+s.url,
 			data		  : "q="+s.query,
 			async      : false,			
 			dataType : "json",

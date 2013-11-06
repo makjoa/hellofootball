@@ -4,14 +4,14 @@ import java.util.List;
 
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.stereotype.Component;
 
 import net.hellofootball.jfile.service.JFileDetails;
 import net.hellofootball.jfile.service.impl.JFileVO;
 
 @Component
-public class JFileMapperImpl extends SqlSessionDaoSupport implements JFileMapper {
+public class JFileMapperImpl extends EgovAbstractMapper implements JFileMapper {
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	@Override

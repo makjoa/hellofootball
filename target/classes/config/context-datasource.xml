@@ -32,15 +32,16 @@
 	/>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	<!-- # iBatis setting# -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		
+    <!-- myBatis Setting -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:config/mybatis-config.xml" /> <!-- 패키지명 주의-->		
-	</bean>
-	 
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory"/>
-	</bean>
+        <property name="configLocation" value="classpath:config/mybatis-config.xml" />
+    </bean>
+    
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSession"/>
+    </bean>
+    	
 	
 </beans>

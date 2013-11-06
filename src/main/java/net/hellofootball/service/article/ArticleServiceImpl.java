@@ -8,7 +8,7 @@ import net.hellofootball.dao.article.ArticleDao;
 import net.hellofootball.domain.article.Article;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service 
 @Transactional
-public class ArticleServiceImpl extends SqlSessionDaoSupport implements ArticleService {
+public class ArticleServiceImpl extends EgovAbstractMapper implements ArticleService {
 	@Autowired
 	private ArticleDao articleDao;
 	

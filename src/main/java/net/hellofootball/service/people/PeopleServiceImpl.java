@@ -6,7 +6,7 @@ import java.util.List;
 import net.hellofootball.domain.people.People;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 @Service 
 @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT ,rollbackFor = {Exception.class,SQLException.class} ,readOnly = false)
 
-public class PeopleServiceImpl extends SqlSessionDaoSupport implements PeopleService {
+public class PeopleServiceImpl extends EgovAbstractMapper implements PeopleService {
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	@Override
 	public List<Object> getPeopleList() {

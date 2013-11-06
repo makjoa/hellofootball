@@ -89,7 +89,7 @@ $(function () {
 
 	function ajaxSend(url, query, parentNode, target, callback) {
 		$.ajax({
-			url: "http://localhost:8080/"+url,
+			url: "/"+url,
 			type: "POST",
 			data: "q="+query,
 //			contentType: "application/json; charset=utf-8",

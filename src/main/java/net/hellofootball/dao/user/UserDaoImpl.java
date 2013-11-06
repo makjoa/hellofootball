@@ -6,11 +6,11 @@ import java.util.List;
 import net.hellofootball.domain.user.LoginCommand;
 import net.hellofootball.domain.user.User;
 
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
+public class UserDaoImpl extends EgovAbstractMapper implements UserDao {
 
 	@SuppressWarnings("unchecked")
 	@Override

@@ -10,13 +10,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service 
 @Transactional
-public class ClubServiceImpl extends SqlSessionDaoSupport implements ClubService {
+public class ClubServiceImpl extends EgovAbstractMapper implements ClubService {
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	private static String COLLECTION_NAME = "club";	
 	

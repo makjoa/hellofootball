@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ import net.hellofootball.domain.user.User;
 import net.hellofootball.service.user.UserService;
 
 @Service
-public class UserServiceImpl extends SqlSessionDaoSupport implements UserService {
+public class UserServiceImpl extends EgovAbstractMapper implements UserService {
 	
 	@Autowired
 	private UserDao userDao;

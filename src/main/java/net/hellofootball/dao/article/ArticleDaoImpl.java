@@ -7,14 +7,15 @@ import java.util.List;
 import net.hellofootball.domain.article.Article;
 
 import org.apache.log4j.Logger;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 
 @Service 
 @Transactional
-public class ArticleDaoImpl extends SqlSessionDaoSupport implements ArticleDao {
+public class ArticleDaoImpl extends EgovAbstractMapper implements ArticleDao {
 	protected final Logger logger = Logger.getLogger(this.getClass().getName());
 	private HashMap<String, Object> valueMap = new HashMap<String, Object>();
 
